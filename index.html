@@ -32,7 +32,6 @@
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="yq-hash" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
-
 <body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
@@ -369,7 +368,12 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['志之所向，金石为开，谁能御之？','花开不是为了花落，而是为了开的更加灿烂。'],
+                        strings: ['仰望星空，我迷恋它的美丽，闪耀、皎洁，让我们忘却烦恼忧愁，享受着这柔美的星光。',
+                                  '仰望星空，我迷恋它的深邃，奇幻、未知，那无限的美好神奇，让我们坚定信念探索与成长。',
+                                  '仰望星空，我迷恋它的宁静，平静、安详，让寻找安慰的我们，疲倦的心灵得到栖息与依傍',
+                                  '仰望星空，我迷恋它的圣洁，无私、热情，汇家点点光芒，让夜行的我们不再孤独与迷茫。',
+                                  '仰望星空，我迷恋它的明朗，自信、坚强，不惧黑夜的恐吓，让星空下的我们坚定前行的方向。',
+                                  '————致星空下的我们'],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
@@ -880,6 +884,44 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
+    <!-- 动态标题 -->
+    <script type="text/javascript">
+        var OriginTitile = document.title,
+            st;
+        document.addEventListener("visibilitychange", function () {
+            document.hidden ? (document.title = "等你回来", clearTimeout(st)) : (document.title =
+                "欢迎", st = setTimeout(function () {
+                    document.title = OriginTitile
+                }, 3e3))
+        })
+    </script>
+        
+        <!-- 天气小插件 -->
+        <div id="weather-v2-plugin-simple"></div>
+        <script>
+        WIDGET = {
+            CONFIG: {
+                "modules": "01234",
+                "background": 1,
+                "tmpColor": "FFFFFF",
+                "tmpSize": 16,
+                "cityColor": "FFFFFF",
+                "citySize": 16,
+                "aqiSize": 16,
+                "weatherIconSize": 24,
+                "alertIconSize": 18,
+                "padding": "10px 10px 10px 10px",
+                "shadow": "1",
+                "language": "auto",
+                "borderRadius": 5,
+                "fixed": "false",
+                "vertical": "middle",
+                "horizontal": "center",
+                "key": "jDEHPxIwnG"
+            }
+        }
+        </script>
+        <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
 </body>
 
 </html>

@@ -32,7 +32,6 @@
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="yq-hash" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
-
 <body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
@@ -1149,6 +1148,44 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
+    <!-- 动态标题 -->
+    <script type="text/javascript">
+        var OriginTitile = document.title,
+            st;
+        document.addEventListener("visibilitychange", function () {
+            document.hidden ? (document.title = "等你回来", clearTimeout(st)) : (document.title =
+                "欢迎", st = setTimeout(function () {
+                    document.title = OriginTitile
+                }, 3e3))
+        })
+    </script>
+        
+        <!-- 天气小插件 -->
+        <div id="weather-v2-plugin-simple"></div>
+        <script>
+        WIDGET = {
+            CONFIG: {
+                "modules": "01234",
+                "background": 1,
+                "tmpColor": "FFFFFF",
+                "tmpSize": 16,
+                "cityColor": "FFFFFF",
+                "citySize": 16,
+                "aqiSize": 16,
+                "weatherIconSize": 24,
+                "alertIconSize": 18,
+                "padding": "10px 10px 10px 10px",
+                "shadow": "1",
+                "language": "auto",
+                "borderRadius": 5,
+                "fixed": "false",
+                "vertical": "middle",
+                "horizontal": "center",
+                "key": "jDEHPxIwnG"
+            }
+        }
+        </script>
+        <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
 </body>
 
 </html>
