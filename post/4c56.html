@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="\themes\matery\source\favicon.png" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/images/loading.png" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">yq-hash</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="\themes\matery\source\favicon.png" data-original="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/images/loading.png" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">yq-hash</div>
         <div class="logo-desc">
@@ -701,10 +701,10 @@
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="\themes\matery\source\favicon.png" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/images/loading.png" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="\themes\matery\source\favicon.png" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/images/loading.png" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -748,7 +748,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="\themes\matery\source\favicon.png" data-original="/medias/featureimages/4.jpg" class="responsive-img" alt="快速搭建个人网站or博客">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/4.jpg" class="responsive-img" alt="快速搭建个人网站or博客">
                         
                         <span class="card-title">快速搭建个人网站or博客</span>
                     </div>
@@ -794,7 +794,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="\themes\matery\source\favicon.png" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
                         <span class="card-title">Hello World</span>
                     </div>
@@ -1203,7 +1203,28 @@ $(function () {
         document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
     }
     </script>
-<script>
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'yq-hash.github.io' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 processImages: null,
