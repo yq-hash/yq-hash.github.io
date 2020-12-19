@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Servlet3-0异步支持-AsyncSupported</title>
+      <link href="post/2504.html"/>
+      <url>post/2504.html</url>
+      
+        <content type="html"><![CDATA[<p>以下内容均来自官方文档</p><h1 id="1-为什么要异步支持？"><a href="#1-为什么要异步支持？" class="headerlink" title="1.为什么要异步支持？"></a>1.为什么要异步支持？</h1><p>应用服务器中的Web容器通常使用每个客户机请求的服务器线程。在重负载条件下，容器需要大量的线程来满足所有客户机请求。可伸缩性限制包括耗尽内存或耗尽容器线程池。要创建可伸缩的web应用程序，您必须确保没有与请求关联的线程处于闲置状态，因此容器可以使用它们来处理新请求。</p><p>简单点说，就是为了节约服务器端的资源</p><h1 id="2-异步支持的应用场景"><a href="#2-异步支持的应用场景" class="headerlink" title="2.异步支持的应用场景"></a>2.异步支持的应用场景</h1><blockquote><p>①.在构建响应之前，线程需要等待资源变为可用或处理数据。比如，一个应用程序需要查询数据库或者在生成响应之前从远程web服务访问数据。<br>②.在生成响应之前，线程需要等待一个事件。比如，一个应用程序可能必须等待一个JMS信息，在生成响应之前，等待来自另一个客户机的新信息或在队列中可用的新数据。</p></blockquote><ul><li>这些场景表示限制web应用程序可伸缩性的操作。异步处理指将这些阻塞操作分配给一个新线程，并将与请求关联的线程重新调整到容器  <h1 id="sevlet中的异步处理"><a href="#sevlet中的异步处理" class="headerlink" title="sevlet中的异步处理"></a>sevlet中的异步处理</h1>Java EE为servlet和过滤器提供异步处理支持。如果servlet或过滤器在处理请求时达到了潜在的阻塞操作，它可以将操作分配给异步执行上下文，并将与请求关联的线程立即返回到容器中，而不会生成响应。阻塞操作在不同线程中完成异步执行上下文，可以生成响应或将请求发送给另一个servlet。</li></ul><p>要在servlet上启用异步处理，可以在@WebServlet注解上将参数asyncsupport设置为true:  </p><blockquote><p>@WebServlet(value=”/some” , asyncSupported=true)<br>public class SomeServlet extends HttpServlet {……}</p></blockquote><p>javax.servlet.AsyncContext类提供了在服务方法中执行异步处理所需的功能。要获得一个AsyncContext实例，请在服务方法的请求对象上调用startAsync()方法;例如:   </p><blockquote><p>protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {<br>……<br>// 获取异步上下文对象<br>AsyncContext startAsync = request.startAsync();<br>……<br>}  </p></blockquote><p>此调用将请求放入异步模式，并确保在退出服务方法后不会提交响应。在阻塞操作完成或将请求发送到另一个servlet之后，你必须在异步上下文中生成响应。</p><p>容器提供了一个不同的线程，其中阻塞操作可以被处理。<br>AsyncContext类提供的方法：</p><p>　　　　void start(Runnable run)：为阻塞操作提供代码，作为实现Runnable接口的类。当调用start方法或使用其他机制将　　　　AsyncContext实例传递给类时，您可以将该类作为一个内部类提供。</p><p>　　　　ServletRequest getRequest()：返回用于初始化此异步上下文的请求。在上面的示例中，请求与服务方法相同。</p><p>你可以使用这个方法在异步上下文获取从请求参数。</p><p>　　　　ServletResponse getResponse()：返回用于初始化此异步上下文的响应。在上面的示例中，响应与服务方法相同。</p><p>你可以在异步上下文中使用此方法来将阻塞操作的结果写入响应。</p><p>　　　　void complete()：完成异步操作并关闭与此异步上下文关联的响应。在异步上下文中写入响应对象之后，调用此方法。</p><p>　　　　void dispatch(String path)：将请求和响应对象分派到给定的路径。在阻塞操作完成之后，使用此方法让另一个servlet写入响应。  </p><h1 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h1><p><img src="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/1.png"><br><img src="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/2.png"><br><img src="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/3.png">  </p><h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/4.png"><br><img src="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/5.png"><br><img src="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/6.png">  </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IP地址详解</title>
       <link href="post/227.html"/>
       <url>post/227.html</url>

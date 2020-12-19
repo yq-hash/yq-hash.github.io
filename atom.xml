@@ -6,7 +6,7 @@
   <link href="http://yq-hash.github.io/atom.xml" rel="self"/>
   
   <link href="http://yq-hash.github.io/"/>
-  <updated>2020-12-13T05:40:06.704Z</updated>
+  <updated>2020-12-19T07:22:59.153Z</updated>
   <id>http://yq-hash.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Servlet3-0异步支持-AsyncSupported</title>
+    <link href="http://yq-hash.github.io/post/2504.html"/>
+    <id>http://yq-hash.github.io/post/2504.html</id>
+    <published>2020-12-19T03:20:10.000Z</published>
+    <updated>2020-12-19T07:22:59.153Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;以下内容均来自官方文档&lt;/p&gt;
+&lt;h1 id=&quot;1-为什么要异步支持？&quot;&gt;&lt;a href=&quot;#1-为什么要异步支持？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="web" scheme="http://yq-hash.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>IP地址详解</title>
     <link href="http://yq-hash.github.io/post/227.html"/>
     <id>http://yq-hash.github.io/post/227.html</id>
     <published>2020-12-13T05:16:56.000Z</published>
-    <updated>2020-12-13T05:40:06.704Z</updated>
+    <updated>2020-12-19T02:55:20.926Z</updated>
     
     
       
