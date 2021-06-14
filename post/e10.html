@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="IP地址详解, yq-hash">
+    <meta name="keywords" content="SpringBoot入门, yq-hash">
     <meta name="description" content="分享生活，分享知识，分享快乐">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>IP地址详解 | yq-hash</title>
+    <title>SpringBoot入门 | yq-hash</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -510,12 +510,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">IP地址详解</h1>
+                    <h1 class="description center-align post-title">SpringBoot入门</h1>
                 </div>
             </div>
         </div>
@@ -632,8 +632,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                                <span class="chip bg-color">网络安全</span>
+                            <a href="/tags/SpringBoot/">
+                                <span class="chip bg-color">SpringBoot</span>
                             </a>
                         
                     </div>
@@ -648,28 +648,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-13
+                    2021-06-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-06-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    292
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -684,30 +684,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="IP地址详解"><a href="#IP地址详解" class="headerlink" title="IP地址详解"></a>IP地址详解</h1><h2 id="1、网络设备"><a href="#1、网络设备" class="headerlink" title="1、网络设备"></a>1、网络设备</h2><ul>
-<li>交换机：用来组建内网的局域网的设备  <h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2></li>
-<li><strong>局域网通讯规则</strong>：所有人必须都在<strong>同一网段内</strong>才能通讯  </li>
-<li>IP地址构成：网络位+主机位  </li>
-<li><strong>子网掩码</strong>：用来确定网络位，与 255 对应的是网路位，与 0 对应的是主机位  <blockquote>
-<p>例如：192.168.0.X，前 3 位是网络位，最后一个是主机位<br>属于 192.168.0.0 网段，名字是 .X<br>子网掩码就是 255.255.255.0  </p>
+                <h1 id="SpringBoot框架入门"><a href="#SpringBoot框架入门" class="headerlink" title="SpringBoot框架入门"></a>SpringBoot框架入门</h1><h2 id="1-1-SpringBoot简介"><a href="#1-1-SpringBoot简介" class="headerlink" title="1.1 SpringBoot简介"></a>1.1 SpringBoot简介</h2><p>Spring Boot 是 Spring 家族中的一个全新的框架，它用来简化 Spring 应用程序的创建和开发过程，也可以说 Spring Boot 能简化我们之前采用 SpringMVC + Spring + MyBatis 框架进行开发的过程。  </p>
+<p>在以往我们采用 SpringMVC + Spring + MyBatis 框架进行开发的时候，搭建和整合三大框架，我们需要做很多工作，比如配置 web.xml，配置 Spring，配置 MyBatis，并将它们整合在一起等，而 Spring Boot 框架对此开发过程进行了革命性的颠覆，完全抛弃了繁琐的 xml 配置过程，采用大量的默认配置简化我们的开发过程。</p>
+<h2 id="1-2-SpringBoot的特性"><a href="#1-2-SpringBoot的特性" class="headerlink" title="1.2 SpringBoot的特性"></a>1.2 SpringBoot的特性</h2><ul>
+<li><p><strong>能够快速创建基于Spring的应用程序</strong>  </p>
+</li>
+<li><p><strong>能够直接使用java.main方法启动内嵌的 Tomcat 服务器运行 SpringBoot程序，不需要部署war包文件</strong></p>
+</li>
+<li><p><strong>提供约定的 stater POM 来简化 Maven配置，让 Maven的配置变得简单</strong></p>
+</li>
+<li><p><strong>自动化配置，根据项目的 Maven依赖配置，SpringBoot自动配置 Spring、Springmvc等</strong></p>
+</li>
+<li><p><strong>提供了程序的健康检查等功能</strong></p>
+</li>
+<li><p><strong>基本可以完全不使用 XML配置文件，采用注解配置</strong>  </p>
+<h2 id="1-3-SpringBoot四大核心"><a href="#1-3-SpringBoot四大核心" class="headerlink" title="1.3 SpringBoot四大核心"></a>1.3 SpringBoot四大核心</h2><h3 id="1-3-1-自动配置"><a href="#1-3-1-自动配置" class="headerlink" title="1.3.1 自动配置"></a>1.3.1 自动配置</h3><h3 id="1-3-2-起步依赖"><a href="#1-3-2-起步依赖" class="headerlink" title="1.3.2 起步依赖"></a>1.3.2 起步依赖</h3><h3 id="1-3-3-Actuator"><a href="#1-3-3-Actuator" class="headerlink" title="1.3.3 Actuator"></a>1.3.3 Actuator</h3><h3 id="1-3-4-命令行界面"><a href="#1-3-4-命令行界面" class="headerlink" title="1.3.4 命令行界面"></a>1.3.4 命令行界面</h3><h2 id="2-1-第一个SpringBoot项目"><a href="#2-1-第一个SpringBoot项目" class="headerlink" title="2.1 第一个SpringBoot项目"></a>2.1 第一个SpringBoot项目</h2><h3 id="2-1-1-项目结构"><a href="#2-1-1-项目结构" class="headerlink" title="2.1.1 项目结构"></a>2.1.1 项目结构</h3><blockquote>
+<p>static：存放静态资源，如图片、CSS、JavaScript等<br>templates：存放Web页面的模板文件<br>application.properties/application.yml：用于存放程序各种依赖模块的配置信息，比如服务端口，数据库连接配置等。</p>
 </blockquote>
+<h3 id="2-1-2-对pom-xml文件进行解释"><a href="#2-1-2-对pom-xml文件进行解释" class="headerlink" title="2.1.2 对pom.xml文件进行解释"></a>2.1.2 对pom.xml文件进行解释</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</span><br><span class="line">         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">    &lt;!--继承 SpringBoot框架的一个父项目，所有自己开发的 SpringBoot都必须得继承--&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.5.1&lt;/version&gt;</span><br><span class="line">        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--当前项目的 GAV 坐标--&gt;</span><br><span class="line">    &lt;groupId&gt;com.jxgm.springboot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;001-springboot-first&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0.0&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--编译级别--&gt;</span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;java.version&gt;1.8&lt;/java.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--springBoot框架web项目起步依赖，通过该依赖自动关联其他依赖，不需要我们一个一个去添加了--&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!--springBoot框架的测试起步依赖，例如：junit 测试，如果不需要的话可以删除--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;!--springBoot项目打包编译的插件--&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="2-1-3-对SpringBoot项目结构进行说明"><a href="#2-1-3-对SpringBoot项目结构进行说明" class="headerlink" title="2.1.3 对SpringBoot项目结构进行说明"></a>2.1.3 对SpringBoot项目结构进行说明</h3></li>
+<li><p><strong>mvn|mvnm|mvnw.cmd:使用脚本操作执行maven相关命令，国内使用较少，可删除</strong>  </p>
 </li>
-<li>ABCD 类 IP 地址： <ul>
-<li>A 类：1-126 默认子网掩码：255.0.0.0  </li>
-<li>B 类：128-191 默认子网掩码：255.255.0.0  </li>
-<li>C 类：192-223 默认子网掩码：255.255.255.0  </li>
-<li>D 类：224-239 组播地址  </li>
-<li>E 类：244-254 科研使用</li>
-</ul>
+<li><p><strong>gitignore：使用版本控制工具git的时候，设置一些忽略提交的内容</strong></p>
 </li>
-<li>几种特殊的 IP 地址：<ul>
-<li>本机 IP ：127.0.0.1  </li>
-<li>广播地址：主机位全为 255  <blockquote>
-<p>主机位不能全为0和255  </p>
-</blockquote>
+<li><p><strong>static|templates：后面模板技术中存放文件的目录</strong>  </p>
 </li>
-<li>网段：主机位全为0</li>
-</ul>
+<li><p><strong>application.properties：SpringBoot的配置文件，很多集成的配置都可以在该文件中进行配置，例如：Spring、SpringMVC、Mybatis、redis等。目前是空的</strong>  </p>
+</li>
+<li><p><strong>Application.java：SpringBoot程序执行的入口，执行该程序中的main方法，SpringBoot就启动了</strong>  </p>
+<h3 id="2-2-1-使用SpringBoot框架集成SpringMVC"><a href="#2-2-1-使用SpringBoot框架集成SpringMVC" class="headerlink" title="2.2.1 使用SpringBoot框架集成SpringMVC"></a>2.2.1 使用SpringBoot框架集成SpringMVC</h3></li>
+<li><p><strong>SpringBoot项目启动入口类 Application.java</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package com.jxgm.springboot;</span><br><span class="line"></span><br><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line">//SpringBoot项目启动入口类</span><br><span class="line">@SpringBootApplication  //开启SpringBoot配置</span><br><span class="line">public class Application {</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) {</span><br><span class="line">        //SpringBoot项目代码必须放在Application类所在的同级目录或者下级目录</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>IndexController类所在包com.jxgm.springboot.web</strong>  </p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">package com.jxgm.springboot.web;</span><br><span class="line"></span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">public class IndexController {</span><br><span class="line">    @RequestMapping(value = "/springboot/say")</span><br><span class="line">    public @ResponseBody String say(){</span><br><span class="line">        return "Hello SpringBoot!";</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">```  </span><br><span class="line">- **注意：新建的类一定要位于Application同级目录或者下级目录，否则SpringBoot加载不到。**  </span><br><span class="line">### 2.2.2 在 IDEA 中右键，运行 Application 类中的 main 方法  </span><br><span class="line">&gt;  Tomcat started on port(s): 8080 (http) with context path ''  </span><br><span class="line">通过在控制台的输出，可以看到启动 SpringBoot 框架，会启动一个内嵌的 tomcat，端</span><br><span class="line">口号为 8080，上下文根为空  </span><br><span class="line">### 2.2.3 在浏览器中输入 http://localhost:8080/springBoot/say 访问  </span><br><span class="line">## 2.3 入门案例分析  </span><br><span class="line">- **SpringBoot的父级依赖spring-boot-starter-parent配置之后，当前的项目就是SpringBoot项目**  </span><br><span class="line">- **sping-boot-starter-parent是一个Springboot的父级依赖，开发SpringBoot程序都需要继承该父级项目，它用来提供相关的Maven默认依赖，使用它之后，常用的jar包依赖可以省去version配置**  </span><br><span class="line">- **SpringBoot提供了哪些默认jar包的依赖，可查看该父级依赖的pom文件**  </span><br><span class="line">- **如果不想使用某个默认的依赖版本，可以通过pom.xml文件的属性配置覆盖各个依赖项，比如覆盖Spring版本**  </span><br></pre></td></tr></tbody></table></figure>
+<properties>
+  <spring-framework.version>5.0.0.RELEASE</spring-framework.version>
+</properties>
+```</li>
+<li><p><strong>@SpringBootApplication 注解是 SpringBoot项目的核心注解，主要作用是开启Sprin自动配置，如果在Application类上去掉该注解，那么不会开启SpringBoot程序</strong>  </p>
+</li>
+<li><p><strong>main方法是一个标准的java程序的main方法，主要作用是作为项目启动运行的入口</strong>  </p>
+</li>
+<li><p><strong>@Controller及@ResponseBody依然是我们之前的SprinMVC,因为SpringBoot的里面依然是使用我们的SpringMVC+Spring+Mybatis等框架</strong></p>
 </li>
 </ul>
 <script>
@@ -753,7 +772,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yq-hash.github.io/post/227.html">http://yq-hash.github.io/post/227.html</a>
+                    <a href="http://yq-hash.github.io/post/e10.html">http://yq-hash.github.io/post/e10.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -791,8 +810,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                                    <span class="chip bg-color">网络安全</span>
+                                <a href="/tags/SpringBoot/">
+                                    <span class="chip bg-color">SpringBoot</span>
                                 </a>
                             
                         </div>
@@ -1223,9 +1242,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/post/e10.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.png" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="SpringBoot入门">
+                        
+                        <span class="card-title">SpringBoot入门</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            闻其风俊旺富
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/post/2504.html">
                     <div class="card-image">
@@ -1243,9 +1309,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1259,51 +1325,6 @@
                     
                     <a href="/tags/web/">
                         <span class="chip bg-color">web</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/post/502f.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/images/loading.png" data-original="/medias/featureimages/23.jpg" class="responsive-img" alt="关于VMware的一些资源-ISO-序列号（二）">
-                        
-                        <span class="card-title">关于VMware的一些资源-ISO-序列号（二）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            闻其风俊旺富
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/iso/">
-                        <span class="chip bg-color">iso</span>
                     </a>
                     
                 </div>

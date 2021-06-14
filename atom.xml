@@ -6,7 +6,7 @@
   <link href="http://yq-hash.github.io/atom.xml" rel="self"/>
   
   <link href="http://yq-hash.github.io/"/>
-  <updated>2020-12-29T03:22:42.210Z</updated>
+  <updated>2021-06-14T13:35:39.608Z</updated>
   <id>http://yq-hash.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot入门</title>
+    <link href="http://yq-hash.github.io/post/e10.html"/>
+    <id>http://yq-hash.github.io/post/e10.html</id>
+    <published>2021-06-14T10:56:45.000Z</published>
+    <updated>2021-06-14T13:35:39.608Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringBoot框架入门&quot;&gt;&lt;a href=&quot;#SpringBoot框架入门&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot框架入门&quot;&gt;&lt;/a&gt;SpringBoot框架入门&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SpringBoot" scheme="http://yq-hash.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>Servlet3-0异步支持-AsyncSupported</title>
