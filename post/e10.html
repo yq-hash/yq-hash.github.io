@@ -655,21 +655,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-14
+                    2021-06-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    10 分
                 </div>
                 
 
@@ -730,53 +730,28 @@
 <li><p><strong>SpringBoot提供了哪些默认jar包的依赖，可查看该父级依赖的pom文件</strong>  </p>
 </li>
 <li><p><strong>如果不想使用某个默认的依赖版本，可以通过pom.xml文件的属性配置覆盖各个依赖项，比如覆盖Spring版本</strong>  </p>
-<pre><code>&lt;properties&gt;
-  &lt;spring-framework.version&gt;5.0.0.RELEASE&lt;/spring-framework.version&gt;
-&lt;/properties&gt;</code></pre>
-</li>
-<li><p><strong>@SpringBootApplication 注解是 SpringBoot项目的核心注解，主要作用是开启Sprin自动配置，如果在Application类上去掉该注解，那么不会开启SpringBoot程序</strong>  </p>
-</li>
-<li><p><strong>main方法是一个标准的java程序的main方法，主要作用是作为项目启动运行的入口</strong>  </p>
-</li>
-<li><p><strong>@Controller及@ResponseBody依然是我们之前的SprinMVC,因为SpringBoot的里面依然是使用我们的SpringMVC+Spring+Mybatis等框架</strong>  </p>
-<h2 id="2-4-SpringBoot核心配置文件"><a href="#2-4-SpringBoot核心配置文件" class="headerlink" title="2.4 SpringBoot核心配置文件"></a>2.4 SpringBoot核心配置文件</h2></li>
-<li><p><strong>SpringBoot的核心配置文件用于配置SpringBoot程序，名字必须以application开始</strong>  </p>
-</li>
-<li><p><strong>SpringBoot核心配置文件：resources/application.properties</strong>  </p>
-<h3 id="2-4-1-核心配置格式"><a href="#2-4-1-核心配置格式" class="headerlink" title="2.4.1 核心配置格式"></a>2.4.1 核心配置格式</h3></li>
-</ul>
-<ol>
-<li><strong>.properties文件（默认采用该文件）</strong><br>通过修改application.properties配置文件，在修改默认tomcat端口号以及项目上下文根，键值对的 properties 属性文件配置方式  <blockquote>
-<p>#设置内嵌端口号<br>server.port=8888</p>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p>#设置上下文根<br>server.server.context-path=/springboot  </p>
-</blockquote>
-<ul>
-<li><strong>配置完毕之后，启动浏览器测试</strong>  <blockquote>
-<p>Tomcat started on port(s): 8888 (http) with context path ‘/springboot’  </p>
-</blockquote>
-</li>
-<li><strong>浏览器访问地址</strong>  <blockquote>
-<p><a target="_blank" rel="noopener" href="http://localhost:8888/springboot/hello/word">http://localhost:8888/springboot/hello/word</a><br><a target="_blank" rel="noopener" href="http://localhost:8888/springboot/sav">http://localhost:8888/springboot/sav</a>  </p>
-</blockquote>
 </li>
 </ul>
-<ol start="2">
-<li><strong>yml 文件</strong><br>yml 是一种 yaml格式的配置文件，主要采用一定的空格、换行等格式排版进行配置。<br>yaml 是一种直观的能够被计算机识别的数据序列化格式，容易被人类阅读，yaml类似与xml，但是语法比xml简洁很多，值与前面的冒号配置项必须要有一个空格，yml后缀也可以使用yaml后缀  <blockquote>
-<p>server:<br>port: 9090<br>servlet:<br> context-path: /hello  </p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li><strong>浏览器访问地址</strong>  <blockquote>
-<p><a target="_blank" rel="noopener" href="http://localhost:9090/hello/say?data=world">http://localhost:9090/hello/say?data=world</a>  </p>
-</blockquote>
-</li>
-<li><strong>注意：当三种格式配置文件（properties,yml,yaml）同时存在，使用的是properties配置文件，SpringBoot启动中只读取一种配置文件</strong></li>
-</ul>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;spring-framework.version&gt;5.0.0.RELEASE&lt;/spring-framework.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">- **@SpringBootApplication 注解是 SpringBoot项目的核心注解，主要作用是开启Sprin自动配置，如果在Application类上去掉该注解，那么不会开启SpringBoot程序**  </span><br><span class="line">- **main方法是一个标准的java程序的main方法，主要作用是作为项目启动运行的入口**  </span><br><span class="line">- **@Controller及@ResponseBody依然是我们之前的SprinMVC,因为SpringBoot的里面依然是使用我们的SpringMVC+Spring+Mybatis等框架**  </span><br><span class="line">## 2.4 SpringBoot核心配置文件  </span><br><span class="line">- **SpringBoot的核心配置文件用于配置SpringBoot程序，名字必须以application开始**  </span><br><span class="line">- **SpringBoot核心配置文件：resources/application.properties**  </span><br><span class="line">### 2.4.1 核心配置格式  </span><br><span class="line">1. **.properties文件（默认采用该文件）**  </span><br><span class="line">通过修改application.properties配置文件，在修改默认tomcat端口号以及项目上下文根，键值对的 properties 属性文件配置方式  </span><br><span class="line">&gt; #设置内嵌端口号  </span><br><span class="line">server.port=8888</span><br><span class="line"></span><br><span class="line">&gt; #设置上下文根  </span><br><span class="line">server.server.context-path=/springboot  </span><br><span class="line">- **配置完毕之后，启动浏览器测试**  </span><br><span class="line">&gt; Tomcat started on port(s): 8888 (http) with context path '/springboot'  </span><br><span class="line">- **浏览器访问地址**  </span><br><span class="line">&gt; http://localhost:8888/springboot/hello/word  </span><br><span class="line">http://localhost:8888/springboot/sav  </span><br><span class="line">2. **yml 文件**  </span><br><span class="line">yml 是一种 yaml格式的配置文件，主要采用一定的空格、换行等格式排版进行配置。  </span><br><span class="line">yaml 是一种直观的能够被计算机识别的数据序列化格式，容易被人类阅读，yaml类似与xml，但是语法比xml简洁很多，值与前面的冒号配置项必须要有一个空格，yml后缀也可以使用yaml后缀  </span><br><span class="line">&gt; server:  </span><br><span class="line">  port: 9090  </span><br><span class="line">  servlet:  </span><br><span class="line">    context-path: /hello  </span><br><span class="line">- **浏览器访问地址**  </span><br><span class="line">&gt; http://localhost:9090/hello/say?data=world  </span><br><span class="line">- **注意：当三种格式配置文件（properties,yml,yaml）同时存在，使用的是properties配置文件，SpringBoot启动中只读取一种配置文件**  </span><br><span class="line">### 2.4.2 多环境配置  </span><br><span class="line">- **多环境下核心配置文件的使用，工作中开发的环境有哪些：开发环境，测试环境，准生产环境，生产环境**  </span><br><span class="line">     在实际开发过程中,我们的项目会经历很多阶段（开发-&gt;测试-&gt;上线），每个阶段的配置也会不同，例如：端口、上下文根、数据库等，那么这个时候为了方便在不同的环境之间切换、SpringBoot提供了多环境配置，具体步骤如下  </span><br><span class="line">  </span><br><span class="line">- 为每个环境创建一个配置文件，命名必须以**application-环境标识.properties|yml**   </span><br><span class="line">  </span><br><span class="line">    application-dev.properties  </span><br><span class="line">      </span><br><span class="line">&gt; #开发环境配置文件  </span><br><span class="line">server.port=8081  </span><br><span class="line">server.servlet.context-path=/dev  </span><br><span class="line"></span><br><span class="line">    application-product.properties  </span><br><span class="line">      </span><br><span class="line">&gt; #生产环境配置文件  </span><br><span class="line">server.port=8082  </span><br><span class="line">server.servlet.context-path=/product  </span><br><span class="line">  </span><br><span class="line">    application-test.properties  </span><br><span class="line"></span><br><span class="line">&gt; #测试环境配置文件  </span><br><span class="line">server.port=8083  </span><br><span class="line">server.servlet.context.path=/test  </span><br><span class="line">  </span><br><span class="line">    application-ready.properties  </span><br><span class="line">      </span><br><span class="line">&gt; #准生产环境配置文件  </span><br><span class="line">server.port=8084  </span><br><span class="line">server.servlet.context.path=/ready  </span><br><span class="line">  </span><br><span class="line">    在总配置文件 application.properties 进行环境的激活  </span><br><span class="line">      </span><br><span class="line">&gt; ##SpringBoot主配置文件  </span><br><span class="line">#激活配置环境  </span><br><span class="line">#激活开发环境  </span><br><span class="line">#spring.profiles.active=dev  </span><br><span class="line">#激活生产环境  </span><br><span class="line">#spring.profiles.active=produce  </span><br><span class="line">#激活测试环境  </span><br><span class="line">spring.profiles.active=test  </span><br><span class="line">#激活准生产环境  </span><br><span class="line">#spring.profiles.active=ready  </span><br><span class="line">  </span><br><span class="line">- **注：等号右边的值和配置文件的环境标识名一致，可以更改总配置文件的配置，yml|yaml文件步骤差不多，就不举例了**  </span><br><span class="line">  </span><br><span class="line">### 2.4.3 SpringBoot 自定义配置  </span><br><span class="line">    在SpringBoot的核心配置文件中，除了使用内置的配置项之外，我们还可以使用自定义配置，然后采用如下注解去读取配置的属性值  </span><br><span class="line">      </span><br><span class="line">1. @Value注解   </span><br><span class="line">&gt; 用于逐个读取application.properties中的配置  </span><br><span class="line">- 在核心配置文件 applicatin.properties 中，添加两个自定义配置项schoole.name和</span><br><span class="line">website。  </span><br><span class="line">&gt; #设置内嵌tomcat端口号  </span><br><span class="line">server.port=8010  </span><br><span class="line">#设置上下文根  </span><br><span class="line">server.servlet.context-path=/  </span><br><span class="line">school.name = jxgm  </span><br><span class="line">websit=http://www.jxgm.springboot  </span><br><span class="line">- 在 IndexController 中定义属性，并使用@Value 注解或者自定义配置值,对其方法进行测试  </span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>@Controller<br>public class IndexController {<br>    @Value(“${school.name}”)<br>    String school;</p>
+<pre><code>@Value("${websit}")
+String localhost;
+
+@RequestMapping(value = "/say")
+public @ResponseBody String login(){
+    return "Hello" + school + localhost;
+}</code></pre>
+<p>}</p>
+<pre><code>
+
+- **运行 http://localhost:8010/sav，在浏览器中进行测试**
+
+
+
+
+
+
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1613,7 +1588,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.9k</span>&nbsp;字
+                class="white-color">4.4k</span>&nbsp;字
             
             
             
