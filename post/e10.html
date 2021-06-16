@@ -662,14 +662,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -738,8 +738,44 @@
 </li>
 <li><p><strong>main方法是一个标准的java程序的main方法，主要作用是作为项目启动运行的入口</strong>  </p>
 </li>
-<li><p><strong>@Controller及@ResponseBody依然是我们之前的SprinMVC,因为SpringBoot的里面依然是使用我们的SpringMVC+Spring+Mybatis等框架</strong></p>
+<li><p><strong>@Controller及@ResponseBody依然是我们之前的SprinMVC,因为SpringBoot的里面依然是使用我们的SpringMVC+Spring+Mybatis等框架</strong>  </p>
+<h2 id="2-4-SpringBoot核心配置文件"><a href="#2-4-SpringBoot核心配置文件" class="headerlink" title="2.4 SpringBoot核心配置文件"></a>2.4 SpringBoot核心配置文件</h2></li>
+<li><p><strong>SpringBoot的核心配置文件用于配置SpringBoot程序，名字必须以application开始</strong>  </p>
 </li>
+<li><p><strong>SpringBoot核心配置文件：resources/application.properties</strong>  </p>
+<h3 id="2-4-1-核心配置格式"><a href="#2-4-1-核心配置格式" class="headerlink" title="2.4.1 核心配置格式"></a>2.4.1 核心配置格式</h3></li>
+</ul>
+<ol>
+<li><strong>.properties文件（默认采用该文件）</strong><br>通过修改application.properties配置文件，在修改默认tomcat端口号以及项目上下文根，键值对的 properties 属性文件配置方式  <blockquote>
+<p>#设置内嵌端口号<br>server.port=8888</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>#设置上下文根<br>server.server.context-path=/springboot  </p>
+</blockquote>
+<ul>
+<li><strong>配置完毕之后，启动浏览器测试</strong>  <blockquote>
+<p>Tomcat started on port(s): 8888 (http) with context path ‘/springboot’  </p>
+</blockquote>
+</li>
+<li><strong>浏览器访问地址</strong>  <blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost:8888/springboot/hello/word">http://localhost:8888/springboot/hello/word</a><br><a target="_blank" rel="noopener" href="http://localhost:8888/springboot/sav">http://localhost:8888/springboot/sav</a>  </p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li><strong>yml 文件</strong><br>yml 是一种 yaml格式的配置文件，主要采用一定的空格、换行等格式排版进行配置。<br>yaml 是一种直观的能够被计算机识别的数据序列化格式，容易被人类阅读，yaml类似与xml，但是语法比xml简洁很多，值与前面的冒号配置项必须要有一个空格，yml后缀也可以使用yaml后缀  <blockquote>
+<p>server:<br>port: 9090<br>servlet:<br> context-path: /hello  </p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><strong>浏览器访问地址</strong>  <blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost:9090/hello/say?data=world">http://localhost:9090/hello/say?data=world</a>  </p>
+</blockquote>
+</li>
+<li><strong>注意：当三种格式配置文件（properties,yml,yaml）同时存在，使用的是properties配置文件，SpringBoot启动中只读取一种配置文件</strong></li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1577,7 +1613,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.6k</span>&nbsp;字
+                class="white-color">3.9k</span>&nbsp;字
             
             
             
