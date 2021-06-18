@@ -655,21 +655,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-17
+                    2021-06-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    14 分
                 </div>
                 
 
@@ -805,7 +805,7 @@
 </ul>
 <h3 id="2-4-3-SpringBoot-自定义配置"><a href="#2-4-3-SpringBoot-自定义配置" class="headerlink" title="2.4.3 SpringBoot 自定义配置"></a>2.4.3 SpringBoot 自定义配置</h3><pre><code>在SpringBoot的核心配置文件中，除了使用内置的配置项之外，我们还可以使用自定义配置，然后采用如下注解去读取配置的属性值  </code></pre>
 <ol>
-<li>@Value注解   <blockquote>
+<li><strong>@Value注解</strong>   <blockquote>
 <p>用于逐个读取application.properties中的配置  </p>
 </blockquote>
 </li>
@@ -831,9 +831,128 @@ public class IndexController {
     }
 }</code></pre>
 <ul>
-<li><strong>运行 <a target="_blank" rel="noopener" href="http://localhost:8010/sav%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95">http://localhost:8010/sav，在浏览器中进行测试</a></strong></li>
+<li><strong>运行 <a target="_blank" rel="noopener" href="http://localhost:8010/sav%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95">http://localhost:8010/sav，在浏览器中进行测试</a></strong>  </li>
 </ul>
-<script>
+<ol start="2">
+<li><strong>@ConfigurationProperties</strong>  </li>
+</ol>
+<ul>
+<li><p><strong>将整个文件映射成一个对象，用于自定义配置项比较多的情况</strong>    </p>
+</li>
+<li><p>com.jxgm.springboot.config 包下创建 School类</p>
+<pre><code>@Component //将此类交给spring容器进行管理
+//将application.properties/yml配置文件中的自定义配置 相对应的前缀名的配置 映射成一个对象
+@ConfigurationProperties(prefix = "school")//prefix 作用可以区分同名配置
+public class School {
+ String name;
+
+ String websit;
+
+  public String getName() {
+      return name;
+  }
+
+  public void setName(String name) {
+      this.name = name;
+  }
+
+  public String getWebsit() {
+      return websit;
+  }
+
+  public void setWebsit(String websit) {
+      this.websit = websit;
+  }
+}</code></pre>
+</li>
+<li><p>application.properties配置文件  </p>
+<blockquote>
+<p>server.port=8090<br>  server.servlet.context-path=/config<br>  school.name = jxgm<br>  school.websit = <a target="_blank" rel="noopener" href="http://www.jxgm.com/">http://www.jxgm.com</a><br>  abc.name = jxfz<br>  abc.websit = <a target="_blank" rel="noopener" href="http://www.jxfz.com/">http://www.jxfz.com</a>  </p>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>友情提示  </li>
+</ol>
+<ul>
+<li><strong>如果是从其他地方拷贝的配置文件，一定要将里面的空格删干净</strong>   </li>
+</ul>
+<h2 id="2-5-SpringBoot前端使用jsp"><a href="#2-5-SpringBoot前端使用jsp" class="headerlink" title="2.5 SpringBoot前端使用jsp"></a>2.5 SpringBoot前端使用jsp</h2><h3 id="2-5-4-在pom-xml文件中配置以下依赖项"><a href="#2-5-4-在pom-xml文件中配置以下依赖项" class="headerlink" title="2.5.4 在pom.xml文件中配置以下依赖项"></a>2.5.4 在pom.xml文件中配置以下依赖项</h3><pre><code> &lt;!--引入SpringBoot内嵌Tomcat对jsp的解析依赖，不添加的话解析不了jsp--&gt;
+        &lt;!--仅仅只是展示jsp页面，只添加以下一个依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+            &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;!--如果要使用servlet必须加该以下两个依赖--&gt;
+        &lt;!--servlet依赖的jar包--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet.jsp-api&lt;/artifactId&gt;
+            &lt;version&gt;2.3.1&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--如果使用 JSTL 必须添加该依赖--&gt;
+        &lt;!--jstl标签依赖的jar包start--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+        &lt;/dependency&gt;</code></pre>
+<h3 id="2-5-5-在pom。xml的build标签中要配置以下信息"><a href="#2-5-5-在pom。xml的build标签中要配置以下信息" class="headerlink" title="2.5.5 在pom。xml的build标签中要配置以下信息"></a>2.5.5 在pom。xml的build标签中要配置以下信息</h3><p>SpringBoot要求jsp文件必须编译到指定的META-INF/resources目录下才能访问，否则访问不到。其实官方已经更建议使用模板技术（后面讲解）  </p>
+<pre><code>  &lt;!--
+            SpringBoot项目默认推荐使用的前端引擎是thymeleaf
+            现在我们要使用springBoot集成jsp，手动指定jsp最后编译的路径
+            而且SpringBoot集成jsp编译jsp的路径是SpringBoot规定好的位置
+            META-INF/resources
+        --&gt;
+        &lt;resources&gt;
+            &lt;resource&gt;
+                &lt;!--源文件--&gt;
+                &lt;directory&gt;src/main/webapp&lt;/directory&gt;
+                &lt;!--指定编译到META-INF/resources 该目标不能随便写--&gt;
+                &lt;targetPath&gt;META-INF/resources&lt;/targetPath&gt;
+                &lt;!--指定源文件夹中的哪个资源要编译进行--&gt;
+                &lt;includes&gt;
+                    &lt;include&gt;*.*&lt;/include&gt;
+                &lt;/includes&gt;
+            &lt;/resource&gt;
+        &lt;/resources&gt;</code></pre>
+<h3 id="2-5-6-在application-properties文件配置-Spring-MVC的视图展示为jsp-相当于Spring-MVC-的视图解析器"><a href="#2-5-6-在application-properties文件配置-Spring-MVC的视图展示为jsp-相当于Spring-MVC-的视图解析器" class="headerlink" title="2.5.6 在application.properties文件配置 Spring MVC的视图展示为jsp,相当于Spring MVC 的视图解析器"></a>2.5.6 在application.properties文件配置 Spring MVC的视图展示为jsp,相当于Spring MVC 的视图解析器</h3><pre><code>#配置视图解析器  
+#其中：/表示目录为src/main/webapp  
+spring.mvc.view.prefix=/  
+spring.mvc.view.suffix=.jsp  </code></pre>
+<ul>
+<li><strong>集成完成后，剩下的步骤和使用SpringMVC一样</strong>  </li>
+</ul>
+<h3 id="2-5-7-在Controller类中编写代码"><a href="#2-5-7-在Controller类中编写代码" class="headerlink" title="2.5.7 在Controller类中编写代码"></a>2.5.7 在Controller类中编写代码</h3><pre><code>@Controller
+public class WebController {
+    @RequestMapping(value = "/sav")
+    public @ResponseBody ModelAndView sav(){
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("message","Hello SpringBoot");
+        mv.setViewName("index");
+        return mv;
+    }
+
+    @RequestMapping(value = "/login")
+    public String login(Model model){
+        model.addAttribute("message","Hello World");
+        return "index";
+    }
+}  </code></pre>
+<h3 id="2-5-8-使用jsp获取-从Controller传递过来的数据"><a href="#2-5-8-使用jsp获取-从Controller传递过来的数据" class="headerlink" title="2.5.8 使用jsp获取 从Controller传递过来的数据"></a>2.5.8 使用jsp获取 从Controller传递过来的数据</h3><pre><code>&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;${message}&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </code></pre>
+<h3 id="2-5-9-运行Application，通过浏览器访问测试localhost-8080-sav-login"><a href="#2-5-9-运行Application，通过浏览器访问测试localhost-8080-sav-login" class="headerlink" title="2.5.9 运行Application，通过浏览器访问测试localhost:8080/sav|login"></a>2.5.9 运行Application，通过浏览器访问测试localhost:8080/sav|login</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1669,7 +1788,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.4k</span>&nbsp;字
+                class="white-color">5.2k</span>&nbsp;字
             
             
             
