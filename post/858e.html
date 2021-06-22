@@ -655,21 +655,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-18
+                    2021-06-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    937
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    11 分
                 </div>
                 
 
@@ -790,7 +790,150 @@ insert into t_student(name,age) values("zhaoliu",75);   </code></pre>
                     &lt;overwrite&gt;true&lt;/overwrite&gt;
                 &lt;/configuration&gt;
             &lt;/plugin&gt;  </code></pre>
-<h3 id="13-1-4-使用MyBatis提供的逆向工程，生成实体bean-映射文件，Dao接口"><a href="#13-1-4-使用MyBatis提供的逆向工程，生成实体bean-映射文件，Dao接口" class="headerlink" title="13.1.4 使用MyBatis提供的逆向工程，生成实体bean,映射文件，Dao接口"></a>13.1.4 使用MyBatis提供的逆向工程，生成实体bean,映射文件，Dao接口</h3><p><strong>点击idea右侧maven按钮，下拉当前工程-&gt;下拉Plugins-&gt;下拉mybatis-generator-&gt;双击mybatis-generator:generate运行，生成相关文件</strong></p>
+<h3 id="13-1-4-使用MyBatis提供的逆向工程，生成实体bean-映射文件，Dao接口"><a href="#13-1-4-使用MyBatis提供的逆向工程，生成实体bean-映射文件，Dao接口" class="headerlink" title="13.1.4 使用MyBatis提供的逆向工程，生成实体bean,映射文件，Dao接口"></a>13.1.4 使用MyBatis提供的逆向工程，生成实体bean,映射文件，Dao接口</h3><p><strong>点击idea右侧maven按钮，下拉当前工程-&gt;下拉Plugins-&gt;下拉mybatis-generator-&gt;双击mybatis-generator:generate运行，生成相关文件</strong>  </p>
+<ol>
+<li><strong>在SpringBoot的核心配置文件 application.properties中配置数据源</strong>  <blockquote>
+<p>#数据库连接信息<br>spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<br>spring.datasource.url=jdbc:mysql://localhost:3306/springboot?useUnicode=true&amp;characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=GMT%2B8<br>spring.datasource.username=root<br>spring.datasource.password=213145  </p>
+</blockquote>
+</li>
+<li><strong>开发代码</strong></li>
+</ol>
+<ul>
+<li>使用MyBatis反向工程生成接口、映射文件以及实体bean。</li>
+<li>编写Service业务层</li>
+<li>编写Controller控制层</li>
+<li>在MyBatis反向工程生成的 Mapper接口上加一个Mapper注解<br>@Mapper作用：mybatis自动扫描数据持久层的映射文件及DAO接口的关系  <h3 id="3-2-2-DAO其他开发方式"><a href="#3-2-2-DAO其他开发方式" class="headerlink" title="3.2.2 DAO其他开发方式"></a>3.2.2 DAO其他开发方式</h3></li>
+</ul>
+<ol>
+<li><strong>在运行的主类上添加注解包扫描</strong>  <pre><code>@SpringBootApplication  //开启spring配置  
+ //MyBatis提供的注解：扫描数据持久层的mapper映射配置文件，DAO接口上就不用加@Mapper  
+ //basePackages 通常指定到数据持久层的包即可
+ @MapperScan(basePackages = "com.jxgm.springboot.mapper") //开启扫描Mapper接口的包以及子目录  
+ public class Application {    
+ public static void main(String[] args) {  
+     SpringApplication.run(Application.class, args);  
+     }   
+ }</code></pre>
+</li>
+<li><strong>将接口和映射文件分开</strong><br>因为SpringBoot不能自动编译接口的映射文件，还需要手动在pom文件中指定，有些公司直接将映射文件直接放到resources目录下  </li>
+</ol>
+<ul>
+<li>在resources目录下新建目录mapper存放映射文件，将StudentMapper.xml文件移到resource/mapper目录下  </li>
+<li>在application.properties配置文件中指定映射文件的位置，这个配置只有接口和映射文件不在同一个包的情况下，才需要指定  <blockquote>
+<p>#指定MyBatis映射文件的路径<br>  mybatis.mapper-locations=classpath:mapper/StudentMapper.xml<br>  #mybatis.mapper-locations=classpath:mapper/*.xml  </p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-3-SpringBoot项目下使用事务"><a href="#3-3-SpringBoot项目下使用事务" class="headerlink" title="3.3 SpringBoot项目下使用事务"></a>3.3 SpringBoot项目下使用事务</h2><ul>
+<li>事务是一个完整的功能，也叫做是一个完整的业务，事务只跟DML语句有关系：增删改  </li>
+</ul>
+<p><strong>SpringBoot使用事务非常简单，底层依然采用的是Spring本身提供的事务管理</strong>  </p>
+<ul>
+<li>在入口类中使用注解 @EnableTransactionManagement 开启事务支持  </li>
+<li>在访问数据库的Service 方法上添加注解 @Transactional即可  <h2 id="3-4-SpringBoot下的SpringMVC"><a href="#3-4-SpringBoot下的SpringMVC" class="headerlink" title="3.4 SpringBoot下的SpringMVC"></a>3.4 SpringBoot下的SpringMVC</h2>  SpringBoot 下的SpringMVC和之前的SpringMVC使用是完全一样的，主要有以下注解  <h3 id="3-4-1-Controller"><a href="#3-4-1-Controller" class="headerlink" title="3.4.1 @Controller"></a>3.4.1 @Controller</h3>  SpringMVC的注解，处理http请求  <h3 id="3-4-2-RestController"><a href="#3-4-2-RestController" class="headerlink" title="3.4.2 @RestController"></a>3.4.2 @RestController</h3>  Spring4 后新增注解，是@Controller注解功能的增强<br>  是@Controller与@ResponseBody的组合注解<br>  如果一个Controller类添加了@RestController，那么该Controller类下的所有方法都相当于添加了@ResponseBody注解<br>  用于返回字符串或json数据  <h3 id="3-4-3-RequestMapping-常用"><a href="#3-4-3-RequestMapping-常用" class="headerlink" title="3.4.3 @RequestMapping(常用)"></a>3.4.3 @RequestMapping(常用)</h3>  支持Get请求，也支持Post请求  <h3 id="3-4-4-GetMapping"><a href="#3-4-4-GetMapping" class="headerlink" title="3.4.4 @GetMapping"></a>3.4.4 @GetMapping</h3>  RequestMapping和Get请求方法的组合<br>  只支持Get请求<br>  Get请求主要用于查询操作  <h3 id="3-4-5-PostMapping"><a href="#3-4-5-PostMapping" class="headerlink" title="3.4.5 @PostMapping"></a>3.4.5 @PostMapping</h3>  RequestMapping和Post请求方法的组合<br>  只支持Post请求<br>  Post请求主要用于新增数据  <h3 id="3-4-6-PutMapping"><a href="#3-4-6-PutMapping" class="headerlink" title="3.4.6 @PutMapping"></a>3.4.6 @PutMapping</h3>  RequestMapping 和 Put请求方法的组合<br>  只支持Put请求<br>  Put通常用于修改数据  <h3 id="3-4-7-DeleteMapping"><a href="#3-4-7-DeleteMapping" class="headerlink" title="3.4.7 @DeleteMapping"></a>3.4.7 @DeleteMapping</h3>  RequestMapping 和 Delete请求方法的组合<br>  只支持Delete请求<br>  通常用于删除数据  <h2 id="3-5-SpringBoot-实现-RESTful"><a href="#3-5-SpringBoot-实现-RESTful" class="headerlink" title="3.5 SpringBoot 实现 RESTful"></a>3.5 SpringBoot 实现 RESTful</h2><h3 id="3-5-1-认识-RESTful"><a href="#3-5-1-认识-RESTful" class="headerlink" title="3.5.1 认识 RESTful"></a>3.5.1 认识 RESTful</h3></li>
+<li><strong>REST（英文：Representational State Transfer，简称 REST）</strong><br>一种互联网软件架构设计的风格，但它并不是标准，它只是提出了一组客户端和服务器<br>交互时的架构理念和设计原则，基于这种理念和原则设计的接口可以更简洁，更有层次，REST<br>这个词，是 Roy Thomas Fielding 在他 2000 年的博士论文中提出的。<br>任何的技术都可以实现这种理念，如果一个架构符合 REST 原则，就称它为 RESTFul 架<br>构<br>比如我们要访问一个 http 接口：<a target="_blank" rel="noopener" href="http://localhost:8080/boot/order?id=1021&amp;status=1">http://localhost:8080/boot/order?id=1021&amp;status=1</a><br>采用 RESTFul 风格则 http 地址为：<a target="_blank" rel="noopener" href="http://localhost:8080/boot/order/1021/1">http://localhost:8080/boot/order/1021/1</a>  <h3 id="3-5-2-Spring-Boot-开发-RESTFul"><a href="#3-5-2-Spring-Boot-开发-RESTFul" class="headerlink" title="3.5.2 Spring Boot 开发 RESTFul"></a>3.5.2 Spring Boot 开发 RESTFul</h3>Spring boot 开发 RESTFul 主要是几个注解实现  </li>
+</ul>
+<ol>
+<li>@PathVariable  </li>
+</ol>
+<p><strong>获取 url 中的数据</strong><br>该注解是实现 RESTFul 最主要的一个注解<br>2. @PostMapping<br><strong>接收和处理 Post 方式的请求</strong><br>3. @DeleteMapping<br><strong>接收 delete 方式的请求，可以使用 GetMapping 代替</strong><br>4. @PutMapping<br><strong>接收 put 方式的请求，可以用 PostMapping 代替</strong><br>5. @GetMapping<br><strong>接收 get 方式的请求</strong>  </p>
+<pre><code>@RestController
+public class IndexController {
+    @GetMapping("/student/g/{id}")
+    public Object selectStudent(@PathVariable("id") Integer id){
+        return "查询的id="+id;
+    }
+}</code></pre>
+<h3 id="3-5-3-RESTful原则"><a href="#3-5-3-RESTful原则" class="headerlink" title="3.5.3 RESTful原则"></a>3.5.3 RESTful原则</h3><ul>
+<li>增Post请求、删delete请求、改put请求、查get请求  </li>
+<li><strong>请求路径不要出现动词</strong><br>  例如：查询订单接口<br>  /boot/order/1021/1(推荐)<br>  /boot/queryOrder/1021/1（不推荐）  </li>
+<li><strong>分页、排序等操作，不需要使用斜杠传参数</strong><br>  例如：订单列表接口<br>  /boot/orders?page=1&amp;sort=desc<br>  一般传的参数不是数据库表的字段，可以采用斜杠  <h2 id="3-6-SpringBoot-集成-Redis"><a href="#3-6-SpringBoot-集成-Redis" class="headerlink" title="3.6 SpringBoot 集成 Redis"></a>3.6 SpringBoot 集成 Redis</h2></li>
+</ul>
+<ol>
+<li><p>添加操作redis数据类型的依赖  </p>
+<blockquote>
+  <!--SpringBoot集成Redis起步依赖-->
+<pre><code> &lt;dependency&gt;
+     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+     &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+ &lt;/dependency&gt;  </code></pre>
+</blockquote>
+</li>
+<li><p>在springboot核心配置文件中添加redis的配置  </p>
+<blockquote>
+<p> #配置redis数据库连接信息<br> spring.redis.host=192.168.213.145<br> spring.redis.port=6379<br> spring.redis.password=  </p>
+</blockquote>
+</li>
+<li><p>redisController类  </p>
+<pre><code>@Controller
+public class StudentController {
+ @Autowired
+ private StudentService studentService;
+
+ @RequestMapping(value = "/save/{key}/{value}")
+ public @ResponseBody Object saveStudent(@PathVariable("key") String key,@PathVariable("value") String value){
+     Integer i = studentService.put(key, value);
+     return i==1?"添加数据到redis成功":"添加数据到redis失败";
+ }
+
+ @RequestMapping(value = "/get/{key}")
+ public @ResponseBody Object get(@PathVariable("key") String key){
+     String value = studentService.get(key);
+     return key+"的值为"+value;
+ }
+
+ @RequestMapping(value = "/del/{key}")
+ public @ResponseBody Object del(@PathVariable("key") String key){
+     Integer del = studentService.del(key);
+     return del==1?key+"删除成功！":key+"删除失败！";
+ }
+}  </code></pre>
+</li>
+<li><p>StudentService接口  </p>
+<pre><code>public interface StudentService {
+ //将值放到redis中
+ Integer put(String key, String value);
+ //从redis中获取指定的key的值
+ String get(String key);
+ //从redis中删除指定的key
+ Integer del(String key);
+}  </code></pre>
+</li>
+<li><p>在 StudentServiceImpl 中注入 RedisTemplate 并实现StudentService接口<br>配置了上面的步骤，SpringBoot将自动配置RedisTemplate，在需要操作redis的类中注入redisTemplate即可。<br>注意：<strong>SpringBoot帮我们注入RedisTemplate类，泛型里面只能写&lt;String,String&gt;、&lt;Object,Object&gt;或者什么都不写</strong>  </p>
+<pre><code>@Service
+public class StudentServiceImpl implements StudentService {
+ @Autowired
+ //获取redis对象模板
+ private RedisTemplate&lt;Object,Object&gt; redisTemplate;
+
+ @Override
+ public Integer put(String key, String value) {
+     //使用redis数据string类型，访问redis数据库
+     ValueOperations&lt;Object, Object&gt; opsForValue = redisTemplate.opsForValue();
+     opsForValue.set(key,value);
+     return 1;
+ }
+
+ @Override
+ public String get(String key) {
+     ValueOperations&lt;Object, Object&gt; ops = redisTemplate.opsForValue();
+     String str = (String) ops.get(key);
+     return str;
+ }
+
+ @Override
+ public Integer del(String key) {
+     Boolean delete = redisTemplate.delete(key);
+     if (delete){
+         return 1;
+     }
+     return 0;
+ }
+}</code></pre>
+</li>
+<li><p>启动 SpringBoot 应用，访问测试  </p>
+</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1627,7 +1770,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.2k</span>&nbsp;字
+                class="white-color">7.7k</span>&nbsp;字
             
             
             
