@@ -662,14 +662,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    15 分
                 </div>
                 
 
@@ -931,7 +931,144 @@ public class StudentServiceImpl implements StudentService {
  }
 }</code></pre>
 </li>
-<li><p>启动 SpringBoot 应用，访问测试  </p>
+<li><p>启动 SpringBoot 应用，访问测试   </p>
+<h2 id="3-7-SpringBoot集成Dobbo分布式框架"><a href="#3-7-SpringBoot集成Dobbo分布式框架" class="headerlink" title="3.7 SpringBoot集成Dobbo分布式框架"></a>3.7 SpringBoot集成Dobbo分布式框架</h2></li>
+</ol>
+<ul>
+<li><strong>面向接口编程</strong></li>
+</ul>
+<ol>
+<li><p><strong>接口工程：存放实体bean和业务接口</strong>  </p>
+<pre><code>public interface StudentService {
+ Integer studentCount();
+}</code></pre>
+</li>
+<li><p><strong>服务提供者：业务接口的实现类并将服务暴露且注册到注册中心，使用业务层调用数据持久层</strong>  </p>
+<ul>
+<li><p>添加依赖（Dubbo，注册中心（zookeeper），接口工程）  </p>
+<pre><code>&lt;!--Dubbo集成SpringBoot框架起步依赖--&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;com.alibaba.spring.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;!--注册中心--&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;com.101tec&lt;/groupId&gt;
+      &lt;artifactId&gt;zkclient&lt;/artifactId&gt;
+      &lt;version&gt;0.10&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;!--接口工程--&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;com.jxgm.springboot&lt;/groupId&gt;
+      &lt;artifactId&gt;017-springboo-interface&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+  &lt;/dependency&gt;  </code></pre>
+</li>
+<li><p>配置服务提供者核心配置文件  </p>
+<pre><code>#设置内嵌Tomcat端口号
+server.port=8888
+#设置上下文根
+server.servlet.context-path=/
+
+#设置dubbo的配置
+spring.application.name=018-springboot-provide
+#当前工程是一个服务提供者
+spring.dubbo.server=true
+#设置注册中心
+spring.dubbo.registry=zookeeper://192.168.213.145:2181</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>服务消费者：处理浏览器客户端发送的请求，从注册中心调用服务提供者所提供的服务</strong>  </p>
+<ul>
+<li><p>添加依赖（Dubbo，注册中心（zookeeper），接口工程）  </p>
+<pre><code>&lt;!--Dubbo集成SpringBoot框架起步依赖--&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;com.alibaba.spring.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;!--注册中心--&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;com.101tec&lt;/groupId&gt;
+      &lt;artifactId&gt;zkclient&lt;/artifactId&gt;
+      &lt;version&gt;0.10&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;!--接口工程--&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;com.jxgm.springboot&lt;/groupId&gt;
+      &lt;artifactId&gt;017-springboo-interface&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+  &lt;/dependency&gt;</code></pre>
+</li>
+<li><p>配置服务消费者核心配置文件  </p>
+<pre><code>#设置内嵌Tomcat端口
+server.port=8090
+#设置上下文根
+server.servlet.context-path=/
+
+#设置Dubbo配置
+spring.application.name=019-springboot-consumer
+#设置注册中心
+spring.dubbo.registry=zookeeper://192.168.213.145:2181</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>在服务提供者项目中业务层，编写 Dubbo 的接口实现类</strong>  </p>
+<pre><code>@Component
+//暴露服务接口
+@Service(interfaceClass = StudentService.class,version = "1.0.0",timeout = 15000)
+//&lt;dubbo:service interface="com.jxgm.springboot.service.StudentService" version="1.0.0" timeout="15000"/&gt;
+public class StudentServiceImpl implements StudentService {
+
+@Override
+public Integer studentCount() {
+    //调用数据持久层
+    return 3000;
+    }
+}</code></pre>
+</li>
+<li><p><strong>在服务提供者项目中SpringBoot入口程序类上加开启 Dubbo 配置支持注解</strong>  </p>
+<pre><code>@SpringBootApplication //开启spring注解配置
+@EnableDubboConfiguration //开启dubbo注解配置
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
+}</code></pre>
+</li>
+<li><p><strong>在服务消费者项目中控制层，编写一个 Controller 类，调用远程的 Dubbo 服务</strong>  </p>
+<pre><code>@Controller
+public class DubboController {
+    //引用远程接口服务
+    //&lt;dubbo:reference interface="com.jxgm.springboot.service.StudentService" version="1.0.0" check=false/&gt;
+    //check = false 当服务消费者开启时不去检查提供者是否开启，只会在调用服务时再去检查
+    @Reference(interfaceClass = StudentService.class,version = "1.0.0",check = false)
+    private StudentService studentService;
+
+    @RequestMapping(value = "/dubbo/count")
+    public @ResponseBody Object dubbo(){
+        Integer num = studentService.studentCount();
+        return "学生总人数"+num;
+    }
+
+}</code></pre>
+</li>
+<li><p><strong>在服务消费者项目中SpringBoot入口程序类上加开启 Dubbo 配置支持注解</strong>  </p>
+<pre><code>@SpringBootApplication //开启spring注解配置
+@EnableDubboConfiguration //开启dubbo注解配置
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
+}</code></pre>
+</li>
+<li><p><strong>启动 Zookeeper 服务，启动浏览器进行测试</strong></p>
 </li>
 </ol>
 <script>
@@ -1770,7 +1907,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.7k</span>&nbsp;字
+                class="white-color">8.6k</span>&nbsp;字
             
             
             
