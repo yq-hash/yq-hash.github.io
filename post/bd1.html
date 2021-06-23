@@ -684,7 +684,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SpringBoot集成Dubbo-Redis-SSM"><a href="#SpringBoot集成Dubbo-Redis-SSM" class="headerlink" title="SpringBoot集成Dubbo+Redis+SSM"></a>SpringBoot集成Dubbo+Redis+SSM</h1><h2 id="案例思想"><a href="#案例思想" class="headerlink" title="案例思想"></a>案例思想</h2><h3 id="1-接口工程：存放实体bean和业务接口"><a href="#1-接口工程：存放实体bean和业务接口" class="headerlink" title="1.接口工程：存放实体bean和业务接口"></a>1.接口工程：存放实体bean和业务接口</h3><ul>
+                <h1 id="SpringBoot集成Dubbo-Redis-SSM"><a href="#SpringBoot集成Dubbo-Redis-SSM" class="headerlink" title="SpringBoot集成Dubbo+Redis+SSM"></a>SpringBoot集成Dubbo+Redis+SSM</h1><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><h3 id="1-接口工程：存放实体bean和业务接口"><a href="#1-接口工程：存放实体bean和业务接口" class="headerlink" title="1.接口工程：存放实体bean和业务接口"></a>1.接口工程：存放实体bean和业务接口</h3><ul>
 <li><p><strong>1. 实体 bean 必须实现序列化</strong>  </p>
 <pre><code>package com.jxgm.springboot.model;
 
@@ -1078,18 +1078,23 @@ public class StudentController {
     @Reference(interfaceName = "com.jxgm.springboot.service.StudentService",version = "1.0.0",check = false)
     private StudentService studentService;
     @RequestMapping(value = "/student/detail/{id}")
-    public String studentDetail(Model model,
-                                            @PathVariable("id") Integer id){
-        Student student = studentService.queryStudentById(id);
-        model.addAttribute("student",student);
+    public String studentDetail(Model model,@PathVariable("id") Integer id){  
+
+        Student student = studentService.queryStudentById(id);  
+
+        model.addAttribute("student",student);  
+
         return "studentDetail";
 
     }
 
     @GetMapping(value = "/student/all/count")
-    public @ResponseBody Object queryAllStudentCount(){
-    Integer count = studentService.queryAllStudentCount();
-    return "学生总人数："+count;
+    public @ResponseBody Object queryAllStudentCount(){  
+
+        Integer count = studentService.queryAllStudentCount();  
+
+        return "学生总人数："+count;  
+
     }
 
 }</code></pre>
