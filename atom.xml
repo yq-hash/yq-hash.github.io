@@ -6,7 +6,7 @@
   <link href="http://yq-hash.github.io/atom.xml" rel="self"/>
   
   <link href="http://yq-hash.github.io/"/>
-  <updated>2021-06-22T15:41:02.091Z</updated>
+  <updated>2021-06-23T03:42:57.441Z</updated>
   <id>http://yq-hash.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot集成Dubbo+Redis+SSM</title>
+    <link href="http://yq-hash.github.io/post/bd1.html"/>
+    <id>http://yq-hash.github.io/post/bd1.html</id>
+    <published>2021-06-22T15:57:47.000Z</published>
+    <updated>2021-06-23T03:42:57.441Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringBoot集成Dubbo-Redis-SSM&quot;&gt;&lt;a href=&quot;#SpringBoot集成Dubbo-Redis-SSM&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SpringBoot" scheme="http://yq-hash.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot框架Web开发</title>
