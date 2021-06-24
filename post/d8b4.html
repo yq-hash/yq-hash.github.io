@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Servlet3-0异步支持-AsyncSupported, yq-hash">
+    <meta name="keywords" content="SpringBoot使用拦截器, yq-hash">
     <meta name="description" content="分享生活，分享知识，分享快乐">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Servlet3-0异步支持-AsyncSupported | yq-hash</title>
+    <title>SpringBoot使用拦截器 | yq-hash</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -510,12 +510,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Servlet3-0异步支持-AsyncSupported</h1>
+                    <h1 class="description center-align post-title">SpringBoot使用拦截器</h1>
                 </div>
             </div>
         </div>
@@ -632,8 +632,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
+                            <a href="/tags/SpringBoot/">
+                                <span class="chip bg-color">SpringBoot</span>
                             </a>
                         
                     </div>
@@ -648,28 +648,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-06-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2021-06-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    994
+                    916
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -684,34 +684,158 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>以下内容均来自官方文档</p>
-<h1 id="1-为什么要异步支持？"><a href="#1-为什么要异步支持？" class="headerlink" title="1.为什么要异步支持？"></a>1.为什么要异步支持？</h1><p>应用服务器中的Web容器通常使用每个客户机请求的服务器线程。在重负载条件下，容器需要大量的线程来满足所有客户机请求。可伸缩性限制包括耗尽内存或耗尽容器线程池。要创建可伸缩的web应用程序，您必须确保没有与请求关联的线程处于闲置状态，因此容器可以使用它们来处理新请求。</p>
-<p>简单点说，就是为了节约服务器端的资源</p>
-<h1 id="2-异步支持的应用场景"><a href="#2-异步支持的应用场景" class="headerlink" title="2.异步支持的应用场景"></a>2.异步支持的应用场景</h1><blockquote>
-<p>①.在构建响应之前，线程需要等待资源变为可用或处理数据。比如，一个应用程序需要查询数据库或者在生成响应之前从远程web服务访问数据。<br>②.在生成响应之前，线程需要等待一个事件。比如，一个应用程序可能必须等待一个JMS信息，在生成响应之前，等待来自另一个客户机的新信息或在队列中可用的新数据。</p>
-</blockquote>
-<ul>
-<li>这些场景表示限制web应用程序可伸缩性的操作。异步处理指将这些阻塞操作分配给一个新线程，并将与请求关联的线程重新调整到容器  <h1 id="sevlet中的异步处理"><a href="#sevlet中的异步处理" class="headerlink" title="sevlet中的异步处理"></a>sevlet中的异步处理</h1>Java EE为servlet和过滤器提供异步处理支持。如果servlet或过滤器在处理请求时达到了潜在的阻塞操作，它可以将操作分配给异步执行上下文，并将与请求关联的线程立即返回到容器中，而不会生成响应。阻塞操作在不同线程中完成异步执行上下文，可以生成响应或将请求发送给另一个servlet。</li>
+                <h1 id="SpringBoot使用拦截器"><a href="#SpringBoot使用拦截器" class="headerlink" title="SpringBoot使用拦截器"></a>SpringBoot使用拦截器</h1><h2 id="1-1-回顾SpringMVC使用拦截器步骤"><a href="#1-1-回顾SpringMVC使用拦截器步骤" class="headerlink" title="1.1 回顾SpringMVC使用拦截器步骤"></a>1.1 回顾SpringMVC使用拦截器步骤</h2><ul>
+<li><p>自定义拦截器类，实现HandlerInterceptor接口  </p>
+</li>
+<li><p>注册拦截器类  </p>
+<pre><code>&lt;!--声明拦截器--&gt;
+&lt;mvc:interceptors&gt;
+    &lt;!--声明第一个拦截器--&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;!--指定拦截器的拦截地址
+            path：拦截的uri地址，使用 ** 通配符。
+                例如： path="/user/**"
+                http://localhost:8080/user/listUser.do
+                http://localhost:8080/user/query/queryUser.do
+        --&gt;
+        &lt;mvc:mapping path="/**"/&gt;
+        &lt;!--指定使用的拦截器--&gt;
+        &lt;bean class="com.bjpowernode.handler.MyInterceptor"/&gt;
+    &lt;/mvc:interceptor&gt;  
+&lt;/mvc:interceptors&gt;  </code></pre>
+</li>
+<li><p>按照 SpringMVC 方式编写一个拦截器类，实现 HandlerInterceptor 接口  </p>
+<pre><code>public class LoginInterceptor implements HandlerInterceptor {
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //判断用户是否登入，没有登入，重定向到登入页面，不放行。登录就放行
+        String uri = request.getRequestURI();
+        System.out.println(uri);
+        //判断当前请求地址是否登录地址
+        if (uri.contains("Login") || uri.contains("login")){
+            //登录请求，直接发行
+            return true;
+        }else {
+            //判断用户是否登录
+            if (request.getSession().getAttribute(SysConfig.USER_CONTEXT)!=null){
+                //说明已经登录，发行
+                return true;
+            }else {
+                //没有登录，跳转到登录页面
+                response.sendRedirect(request.getContextPath()+"/index.jsp");
+            }
+        }
+        //默认拦截
+        return false;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+
+    }
+}</code></pre>
+<h2 id="1-2-SpringBoot使用拦截器步骤"><a href="#1-2-SpringBoot使用拦截器步骤" class="headerlink" title="1.2 SpringBoot使用拦截器步骤"></a>1.2 SpringBoot使用拦截器步骤</h2><h3 id="1-2-1-实现一个登录拦截器"><a href="#1-2-1-实现一个登录拦截器" class="headerlink" title="1.2.1 实现一个登录拦截器"></a>1.2.1 实现一个登录拦截器</h3></li>
 </ul>
-<p>要在servlet上启用异步处理，可以在@WebServlet注解上将参数asyncsupport设置为true:  </p>
+<ol>
+<li><p>定义一个拦截器，实现HandlerInterceptor接口  </p>
+<pre><code>public class UserInterceptor implements HandlerInterceptor {
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //编写业务拦截的规则
+        //从session中获取用户的信息
+        User user = (User) request.getSession().getAttribute("user");
+
+        //判断用户是否登录
+        if (null == user){
+            //未登录，跳转到登录页面
+            response.sendRedirect(request.getContextPath()+"/login");
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+
+    }
+}</code></pre>
+</li>
+<li><p>创建一个配置类（即：在SpringMVC配置文件中使用mvc:interceptors标签）  </p>
 <blockquote>
-<p>@WebServlet(value=”/some” , asyncSupported=true)<br>public class SomeServlet extends HttpServlet {……}</p>
+<p>在 项 目 中 创 建 一 个 config 包 ， 创 建 一 个 配 置InterceptorConfig ， 并 实 现WebMvcConfigurer 接口， 覆盖接口中的 addInterceptors 方法，并为该配置类添加@Configuration 注解，标注此类为一个配置类，让 Spring Boot 扫描到，这里的操作就相当于 SpringMVC 的注册拦截器 ，@Configuration 就相当于一个 applicationContext-mvc.xml</p>
 </blockquote>
-<p>javax.servlet.AsyncContext类提供了在服务方法中执行异步处理所需的功能。要获得一个AsyncContext实例，请在服务方法的请求对象上调用startAsync()方法;例如:   </p>
-<blockquote>
-<p>protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {<br>……<br>// 获取异步上下文对象<br>AsyncContext startAsync = request.startAsync();<br>……<br>}  </p>
-</blockquote>
-<p>此调用将请求放入异步模式，并确保在退出服务方法后不会提交响应。在阻塞操作完成或将请求发送到另一个servlet之后，你必须在异步上下文中生成响应。</p>
-<p>容器提供了一个不同的线程，其中阻塞操作可以被处理。<br>AsyncContext类提供的方法：</p>
-<p>　　　　void start(Runnable run)：为阻塞操作提供代码，作为实现Runnable接口的类。当调用start方法或使用其他机制将　　　　AsyncContext实例传递给类时，您可以将该类作为一个内部类提供。</p>
-<p>　　　　ServletRequest getRequest()：返回用于初始化此异步上下文的请求。在上面的示例中，请求与服务方法相同。</p>
-<p>你可以使用这个方法在异步上下文获取从请求参数。</p>
-<p>　　　　ServletResponse getResponse()：返回用于初始化此异步上下文的响应。在上面的示例中，响应与服务方法相同。</p>
-<p>你可以在异步上下文中使用此方法来将阻塞操作的结果写入响应。</p>
-<p>　　　　void complete()：完成异步操作并关闭与此异步上下文关联的响应。在异步上下文中写入响应对象之后，调用此方法。</p>
-<p>　　　　void dispatch(String path)：将请求和响应对象分派到给定的路径。在阻塞操作完成之后，使用此方法让另一个servlet写入响应。  </p>
-<h1 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h1><p><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/1.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/2.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/3.png">  </p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/4.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/5.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/6.png">  </p>
+<pre><code>@Configuration  //定义此类为配置文件（即相当于SpringMVC的xml配置文件）
+public class InterceptorConfig implements WebMvcConfigurer {
+    //要拦截user下的所有访问请求，必须用户登录后才可访问
+    String[] addPathPatterns = {
+            "/user/**"
+    };
+    //跳过所拦截的路径,不需要用户登录也可访问
+    String[] excludePathPatterns = {
+            "/user/login","/user/index","/user/error"
+    };
+
+    //mvc:interceptors
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        //声明第一个拦截器
+        //&lt;mvc:interceptor &lt;bean class/&gt; &lt;mvc:mapping path/&gt; &lt;mvc:exclude-mapping path/&gt;
+        //&lt;bean class/&gt;: new UserInterceptor() 指定使用的拦截器
+        //&lt;mvc:mapping path/&gt; : addPathPatterns() 指定拦截器拦截地址
+        //&lt;mvc:exclude-mapping path/&gt; : excludePathPatterns() 指定拦截器跳过拦截地址
+        registry.addInterceptor(new UserInterceptor()).addPathPatterns(addPathPatterns).excludePathPatterns(excludePathPatterns);
+    }
+}</code></pre>
+</li>
+<li><p>创建一个控制层  </p>
+<pre><code>@Controller
+@RequestMapping(value = "/user")
+public class UserController {
+    //用户登录的请求
+    @RequestMapping(value = "/login")
+    public @ResponseBody Object login(HttpServletRequest request){
+        //将用户的信息存放到session中
+        User user = new User();
+        user.setId(1001);
+        user.setName("zhangsan");
+
+        request.getSession().setAttribute("user",user);
+
+        return "login SUCCESS";
+    }
+    //该请求需要用户登录成功才可访问
+    @RequestMapping(value = "/center")
+    public @ResponseBody Object center(){
+        return "center SUCCESS";
+    }
+
+    //该请求不登录也可访问
+    @RequestMapping(value = "/index")
+    public @ResponseBody Object index(){
+        return "index SUCCESS";
+    }
+
+    //如果用户未登录访问了需要登录才可访问的请求，之后会跳转到该请求路径
+    @RequestMapping(value = "/error")
+    public @ResponseBody Object error(){
+        return "error SUCCESS";
+    }
+}</code></pre>
+</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -755,7 +879,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yq-hash.github.io/post/2504.html">http://yq-hash.github.io/post/2504.html</a>
+                    <a href="http://yq-hash.github.io/post/d8b4.html">http://yq-hash.github.io/post/d8b4.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -793,8 +917,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
+                                <a href="/tags/SpringBoot/">
+                                    <span class="chip bg-color">SpringBoot</span>
                                 </a>
                             
                         </div>
@@ -1225,17 +1349,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/e10.html">
+                <a href="/post/d8b4.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="SpringBoot入门">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/4.jpg" class="responsive-img" alt="SpringBoot使用拦截器">
                         
-                        <span class="card-title">SpringBoot入门</span>
+                        <span class="card-title">SpringBoot使用拦截器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1245,9 +1370,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1256,6 +1381,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1274,13 +1400,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/227.html">
+                <a href="/post/bd1.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/20.jpg" class="responsive-img" alt="IP地址详解">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/15.jpg" class="responsive-img" alt="SpringBoot集成Dubbo+Redis+SSM">
                         
-                        <span class="card-title">IP地址详解</span>
+                        <span class="card-title">SpringBoot集成Dubbo+Redis+SSM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1291,7 +1417,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
                             </span>
                         <span class="publish-author">
                             
@@ -1304,8 +1430,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">网络安全</span>
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>
