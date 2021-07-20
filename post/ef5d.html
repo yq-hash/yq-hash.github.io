@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Servlet3-0异步支持-AsyncSupported, yq-hash">
+    <meta name="keywords" content="spring注解容器组件注册, yq-hash">
     <meta name="description" content="分享生活，分享知识，分享快乐">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Servlet3-0异步支持-AsyncSupported | yq-hash</title>
+    <title>spring注解容器组件注册 | yq-hash</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -510,12 +510,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Servlet3-0异步支持-AsyncSupported</h1>
+                    <h1 class="description center-align post-title">spring注解容器组件注册</h1>
                 </div>
             </div>
         </div>
@@ -632,8 +632,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
+                            <a href="/tags/spring/">
+                                <span class="chip bg-color">spring</span>
                             </a>
                         
                     </div>
@@ -648,28 +648,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-07-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2021-07-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    994
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    9 分
                 </div>
                 
 
@@ -684,34 +684,313 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>以下内容均来自官方文档</p>
-<h1 id="1-为什么要异步支持？"><a href="#1-为什么要异步支持？" class="headerlink" title="1.为什么要异步支持？"></a>1.为什么要异步支持？</h1><p>应用服务器中的Web容器通常使用每个客户机请求的服务器线程。在重负载条件下，容器需要大量的线程来满足所有客户机请求。可伸缩性限制包括耗尽内存或耗尽容器线程池。要创建可伸缩的web应用程序，您必须确保没有与请求关联的线程处于闲置状态，因此容器可以使用它们来处理新请求。</p>
-<p>简单点说，就是为了节约服务器端的资源</p>
-<h1 id="2-异步支持的应用场景"><a href="#2-异步支持的应用场景" class="headerlink" title="2.异步支持的应用场景"></a>2.异步支持的应用场景</h1><blockquote>
-<p>①.在构建响应之前，线程需要等待资源变为可用或处理数据。比如，一个应用程序需要查询数据库或者在生成响应之前从远程web服务访问数据。<br>②.在生成响应之前，线程需要等待一个事件。比如，一个应用程序可能必须等待一个JMS信息，在生成响应之前，等待来自另一个客户机的新信息或在队列中可用的新数据。</p>
-</blockquote>
-<ul>
-<li>这些场景表示限制web应用程序可伸缩性的操作。异步处理指将这些阻塞操作分配给一个新线程，并将与请求关联的线程重新调整到容器  <h1 id="sevlet中的异步处理"><a href="#sevlet中的异步处理" class="headerlink" title="sevlet中的异步处理"></a>sevlet中的异步处理</h1>Java EE为servlet和过滤器提供异步处理支持。如果servlet或过滤器在处理请求时达到了潜在的阻塞操作，它可以将操作分配给异步执行上下文，并将与请求关联的线程立即返回到容器中，而不会生成响应。阻塞操作在不同线程中完成异步执行上下文，可以生成响应或将请求发送给另一个servlet。</li>
+                <h1 id="Spring源码导读"><a href="#Spring源码导读" class="headerlink" title="Spring源码导读"></a>Spring源码导读</h1><ul>
+<li><strong>1.本文是一篇spring源码相关的文章。众所周知，读源码是一件令人恐惧的事情，看源码相关的博客、书和文章亦是如此。</strong>  </li>
+<li><strong>2.在正式开始spring源码导读之前，读者总得知道spring里的各个标签是干啥的吧，因此文中前一部分罗列了spring常见的注解用法。并搞了点SpringAOP和spring事务源码的解析作为后面正式开始的导读的开胃菜</strong>  </li>
+<li><strong>3.介绍完了，让我们开始吧！！！</strong>  <h1 id="Spring注解"><a href="#Spring注解" class="headerlink" title="Spring注解"></a>Spring注解</h1></li>
+<li><strong>@configuration 用于标准配置类</strong>  </li>
+<li><strong>@Bean 结合@Configuration（full mode）使用或结合@Component（light mode）使用。可以导入第三方组件,如方法有参数默认从IOC容器中获取，可以指定initMethod和destroyMethod 指定初始化和销毁方法,多实例对象不会调用销毁方法.</strong>  </li>
+<li><strong>@Scope:设置组件作用域 1.prototype:多例的2.singleton:单例的（默认值）</strong>  </li>
+<li><strong>@lazy 懒加载</strong>  </li>
+<li><strong>@Conditional({Condition}):按照一定的条件进行判断,满足条件给容器中注册Bean,传入Condition数组,，使用时需自己创建类继承Condition然后重写match方法。</strong>  </li>
+<li><strong>@Import[快速给容器中导入一个组件]</strong>  </li>
 </ul>
-<p>要在servlet上启用异步处理，可以在@WebServlet注解上将参数asyncsupport设置为true:  </p>
-<blockquote>
-<p>@WebServlet(value=”/some” , asyncSupported=true)<br>public class SomeServlet extends HttpServlet {……}</p>
-</blockquote>
-<p>javax.servlet.AsyncContext类提供了在服务方法中执行异步处理所需的功能。要获得一个AsyncContext实例，请在服务方法的请求对象上调用startAsync()方法;例如:   </p>
-<blockquote>
-<p>protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {<br>……<br>// 获取异步上下文对象<br>AsyncContext startAsync = request.startAsync();<br>……<br>}  </p>
-</blockquote>
-<p>此调用将请求放入异步模式，并确保在退出服务方法后不会提交响应。在阻塞操作完成或将请求发送到另一个servlet之后，你必须在异步上下文中生成响应。</p>
-<p>容器提供了一个不同的线程，其中阻塞操作可以被处理。<br>AsyncContext类提供的方法：</p>
-<p>　　　　void start(Runnable run)：为阻塞操作提供代码，作为实现Runnable接口的类。当调用start方法或使用其他机制将　　　　AsyncContext实例传递给类时，您可以将该类作为一个内部类提供。</p>
-<p>　　　　ServletRequest getRequest()：返回用于初始化此异步上下文的请求。在上面的示例中，请求与服务方法相同。</p>
-<p>你可以使用这个方法在异步上下文获取从请求参数。</p>
-<p>　　　　ServletResponse getResponse()：返回用于初始化此异步上下文的响应。在上面的示例中，响应与服务方法相同。</p>
-<p>你可以在异步上下文中使用此方法来将阻塞操作的结果写入响应。</p>
-<p>　　　　void complete()：完成异步操作并关闭与此异步上下文关联的响应。在异步上下文中写入响应对象之后，调用此方法。</p>
-<p>　　　　void dispatch(String path)：将请求和响应对象分派到给定的路径。在阻塞操作完成之后，使用此方法让另一个servlet写入响应。  </p>
-<h1 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h1><p><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/1.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/2.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/3.png">  </p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/4.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/5.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/6.png">  </p>
+<p><strong>1.Import(类名),容器中就会自动注册这个组件，id默认是组件的全名</strong><br><strong>2.ImportSelector：返回需要导入的组件的全类名的数组</strong><br><strong>3.ImportBeanDefinitionRegistrar：手动注册bean</strong></p>
+<pre><code>&lt;bean id="person" class="com.jxgm.bean.Person" Scope="prototype"&gt;
+    &lt;property name="age" value="18"&gt;&lt;/property&gt;
+    &lt;property name="name" value="zhangsan"&gt;&lt;/property&gt;
+&lt;/bean&gt;  </code></pre>
+<p><strong>注解方式</strong>  </p>
+<pre><code>    //声明该类为configuration类或component类  
+    @Bean(value="person1")  
+    public Person person(){
+        return new Person("zhangsan",18);
+    }   </code></pre>
+<ul>
+<li><strong>包扫描@ComponentScan (@ComponentScans可以配置多个扫描,@TypeFilter:指定过 滤规则,自己实现TypeFilter类)<br>组件(@Service、@Controller、@Repository):包扫描+组件注解导入注解。</strong>    </li>
+</ul>
+<p><strong>xml文件方式</strong></p>
+<pre><code>&lt;!--包扫描、只要标注了@Controller、@Service、@Repository、@Component--&gt;
+&lt;context:component-scan base-package="com.jxgm"&gt;&lt;/context&gt;  </code></pre>
+<p><strong>注解方式</strong>  </p>
+<pre><code>@Configuration  //告诉Spring这是一个配置类
+@ComponentScan(value="com.jxgm包名"，excludeFilters = {
+    @Filter(type=FilterType.ANNOTATION,classes={Controller.class,Service.class})
+})
+@ComponentScan(value="com.jxgm包名"，includeFilters = {
+    @Filter(type=FilterType.ANNOTATION,classes={Controller.class,Service.class}),
+    @Filter(type=FilterType.ASSIGNABLE_TYPE,classes={BookService.class}),
+    @Filter(type=FilterType.CUSTOM,classes={MyTypeFilter.class})
+    },useDefaultFilters = false)
+})
+//ComponentScan     value:指定要扫描的包
+//excludeFileters = Filter[] : 指定扫描的时候按照什么规则排除那些组件
+//includeFileters = Filter[] : 指定扫描的时候只需要包含哪些组件
+//FilterType.ANNOTAION：按照注解;
+//FilterType.ASSIGNABLE_TYPE：按照给定的类型;
+//FilterType.ASPECTJ：使用ASPECTJ表达式
+//FilterType.REGEX：使用正则指定
+//FilterType.CUSTOM：使用自定义规则
+
+//类中组件同一设置。满足当前条件，这个类中配置的所有bean注册才能生效；
+@Conditional({WindowsCondition.class})
+@Import({类名.class,类名.class,MyImportSelector.class,MyImportBeanDefinitionRegistrar.class})  
+//@Import导入组件，id默认是组件的全类名
+public class MainConfig(){
+
+    //给容器中注册一个Bean;类型为返回值的类型，id默认是用方法名作为id
+    //默认是单实例
+     /**
+     * Specifies the name of the scope to use for the annotated component/bean.
+     * @see ConfigurableBeanFactory#SCOPE_PROTOTYPE prototype
+     * @see ConfigurableBeanFactory#SCOPE_SINGLETON singleton
+     * @see org.springframework.web.context. WebApplicationContext#SCOPE_REQUEST  request
+     * @see org.springframework.web.context. WebApplicationContext#SCOPE_SESSION session
+     * @see #value  
+     * 
+     * prototype：多实例的：ioc容器启动并不会去调用方法创建对象放在容器中。
+     *                      每次获取的时候才会调用方法创建对象；  
+     * singleton：单实例的（默认值）:ioc容器启动会调用方法创建对象到ioc容器中。
+                        以后每次获取就是直接从容器（map.get()）中拿  
+     * request ：同一次请求创建一个实例
+     * session ：同一个session创建一个实例  
+     * @Scope：调整作用域  
+
+     * 懒加载：
+     *      单实例bean:默认在容器启动的时候创建对象;
+     *      懒加载：容器启动不创建对象。第一次使用（获取）Bean创建对象，并初始化；
+     */
+
+    //@Scope("prototype")
+    @lazy
+    @Bean(value="person")  
+    public Person person1(){
+        //单实例时：ioc容器启动调用方法创建对象时执行
+        System.out.println("给容器中添加Person……")
+        return new Person("zhangsan",18);
+    }
+
+    /**
+    @Conditional({Condition}):按照一定的条件进行判断，满足条件给容器中注册bean
+
+    如果系统是windows，给容器中注册（"bill"）
+    如果是linux系统，给容器中注册（"linus"）
+    */
+    //@Conditional({WindowsCondition.class})
+    @Bean("bill")
+    public Person person01(){
+        return new Person("Bill Gates",62);
+    }
+
+    @Conditional(LinuxCondition.class)
+    @Bean("linus")
+    public Person person02(){
+        return new Person("linus",48);
+    }
+
+    @Bean
+    public ColorFactorBean colorFactoryBean(){
+        return new ColorFactoryBean();
+    }
+}  
+
+&lt;!-- 使用自定义规则 --&gt;  
+public void MyTypeFilter implements TypeFilter{
+
+    /**
+    metadataReader:读取到的当前正在扫描的类的信息
+    metadataReaderFactory:可以获取到其他任何类的信息
+    */
+
+    @Override
+    public boolean match(MetadataReader metadataReader,MetadataReaderFactory metadataReaderFactory)
+            throws IOException{
+                //获取当前类注解的信息
+                AnnotationMetadata annotationMetadata = metadataReader.getAnnotationMetadata();
+                //获取当前正在扫描的类的类信息
+                ClassMetadata classMetadata = metadataReader.getClassMetadata();
+                //获取当前类资源（类的路径）
+                Resource resource = metadataReader.getResource();
+
+                String className classMetadata.getClassName();
+
+                System.out.println("--&gt;"+className);
+
+                if(className.contains("er")){
+                    return true;
+                }
+
+                return false;
+            }
+
+}</code></pre>
+<p><strong>在com.jxgm.condition下创建LinuxCondition.java和WindowsCondition.java</strong></p>
+<pre><code>//判断是否为linux操作系统
+public class LinuxCondition implements Condition{
+
+    /**
+        ConditionContext：判断条件能使用的上下文（环境）
+        AnnotatedTypeMetadata：注释信息
+    */
+
+    @Override
+    public boolean matches(ConditionContext context,AnnotatedTypeMetadata metadata){
+        //是否linux系统
+        //1.能获取到ioc使用的beanfactory
+        ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
+        //2.获取类加载器
+        ClassLoader classLoader = context.getClassLoader();
+        //3.获取当前环境信息
+        Environment environment = context.getEnvironment();
+        //4.获取到bean定义的注册类
+        BeanDefinitionRegistry registry = context.getRegistry();
+
+        String property = environment.getProperty("os.name");
+
+        if(property.contains("Linux")){
+            return true;
+        }
+
+        return false;
+    }
+}
+
+//判断是否为windows操作系统
+public class WindowsCondition implements Condition {
+    @Override
+    public boolean matches(ConditionContext context,AnnotatedTypeMetadata metadata){
+        //是否为Windows系统
+        Environment environment = context.getEnvironment();
+
+        String property = environment.getProperty("os.name");
+
+        if(property.contains("Windows")){
+            return true;
+        }
+
+        return false;
+    }
+}</code></pre>
+<p><strong>测试类</strong>  </p>
+<pre><code>AnnotationConfigApplicationContext applicationContext = new AnnotaionConfigApplicationContext(MainConfig.class);
+@Test
+public void test01(){
+    AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);  
+    String[] definitionNames = applicationContext.getBeanDefinition();
+    for(String name : definitionNames){
+        System.out.println(name);
+    }
+    System.out.println("ioc容器创建完成！");
+    Object bean = applicationContext.getBean("person");
+    Object bean2 = applicationContext.getBean("person");
+    System.out.println(bean == bean2);
+}  
+
+@Test
+public void test02(){
+    String[] namesForType = applicationContext.getBeanNamesForType(Person.class);
+    ConfigurableEnvironment environment = applicationContext.getEnvironment();
+    //动态获取变量的值；Windows 10
+    String property = environment.getProperty("os.name");
+    for(String name : namesForType){
+        System.out.println(name);
+    }
+
+    Map&lt;String,Person&gt; persons = applicationContext.getBeansOfType(Person.class);
+    System.out.println(persons);
+}</code></pre>
+<h3 id="给容器中注册组件："><a href="#给容器中注册组件：" class="headerlink" title="给容器中注册组件："></a>给容器中注册组件：</h3><ul>
+<li><strong>1）、包扫描+组件标注注解（@Controller/@Service/@Repository/@Component）[自己写的类]</strong>  </li>
+<li><strong>2）、@Bean[导入的第三方包里面的组件]</strong>  </li>
+<li><strong>3）、@Import[快速给容器中导入一个组件]</strong>  </li>
+</ul>
+<p><strong>1)、@Import(要导入到容器中的组件)：容器中就会自动注册这个组件，id默认是全类名</strong><br><strong>2)、ImportSelecttor:返回需要导入的组件的全类名数组</strong><br><strong>3)、ImportBeanDefinitionRegistrar:手动注册bean到容器中</strong><br><strong>4)、使用Spring提供的FactoryBean(工厂Bean)</strong><br>1)、默认取到的是工厂bean调用getObject创建的对象<br>2)、要获取工厂Bean本身，我们需要给id前面加一个&amp; “&amp;colorFactoryBean”</p>
+<p><strong>测试类</strong>  </p>
+<pre><code>public class IocTest{
+    AnnotationConfigApplicationContext applicationContext = new AnnotaionConfigApplicationContext(MainConfig.class);
+
+    public void testImport(){
+        printBeans(applicationContext);
+    }
+
+
+    public void printBeans(AnnotationConfigApplicationContext applicationContext){
+        String[] difinitionNames = applicationContext.getBeanDefinitionNames();
+
+        for(String name : difinitionNames){
+            System.out.println(name);
+        }
+
+    }
+}</code></pre>
+<p><strong>2)、在com.jxgm.condition下创建MyImportSelector.java实现ImportSelector接口</strong>   </p>
+<pre><code>//自定义逻辑返回需要导入的组件
+public class MyImportSelector implements ImportSelector{
+    //返回值，就是导入到容器中的组件全类名
+    //AnnotationMetadata：当前标注@Import注解的类的所有注解信息
+
+    @Override
+    public String[] selectImports(AnnotationMetadata importingClassMetadata){
+
+        //方法不要返回null值
+        return new String[]{"全类名","全类名",……};
+    }
+}  </code></pre>
+<p><strong>3）、在com.jxgm.condition下创建MyImportBeanDefinitionRegistrar.java实现ImportBeanDefinitionRegistrar接口</strong>  </p>
+<pre><code>public calss MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar{
+    /**
+    AnnotationMetadata：当前类的注解信息
+    BeanDefinitionRegistry:BeanDefinition注册类；
+            把所有需要添加到容器的bean；调用
+            BeanDefinitionRegistry.registerBeanDefinition手工注册进来
+    */
+
+    @Override
+    public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata,BeanDefinitionRegistry registry){
+        boolean definition = registry.containsBeanDefinition("全类名");
+        boolean definition2 = registry.containsBeanDefinition("全类名");
+
+        if(definition &amp;&amp; definition2){
+            //指定Bean定义信息；(Bean的类型，Bean...)
+            RootBeanDifinition beanDifinition = new RootBeanDefinition(类名.class);
+            //注册一个bean,指定Bean名
+            registry.registryBeanDefinition("类名"，beanDifinition);
+        }
+
+    }
+}</code></pre>
+<p><strong>4）、在com.jxgm.bean下创建一个domain实现FactoryBean接口实现里面的方法</strong>  </p>
+<pre><code>//创建一个Spring定义的FactoryBean
+public class ColorFactoryBean implement FactoryBean&lt;Color&gt;{
+    //返回一个Color对象，这个对象对添加到容器中
+    @Override
+    public Color getObject() throws Exception {
+        return new Color();
+    }
+    //返回对象类型
+    @Override
+    public Class&lt;?&gt; getObjectType(){
+        return Color.class;
+    }
+
+    //判断对象是否为单例
+    //true：该对象为单实例，在容器中保存一份
+    //false：该对象是多实例，每次获取都会创建一个新的bean
+    @Override
+    public boolean isSingleton(){
+        return false;
+    }
+}</code></pre>
+<p><strong>测试类</strong>  </p>
+<pre><code>AnnotationConfigApplicationContext applicationContext = new AnnotaionConfigApplicationContext(MainConfig.class);
+
+Object bean = applicationContext.getBean("colorFactoryBean");
+Object bean2 = applicationContext.getBean("colorFactoryBean");
+System.out.println("bean类型:"+bean.getClass());
+System.out.println(bean2 == bean);  
+
+Object bean3 = applicationContext.getBean("&amp;colorFactoryBean");
+System.out.println(bean3.getClass());</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -755,7 +1034,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yq-hash.github.io/post/2504.html">http://yq-hash.github.io/post/2504.html</a>
+                    <a href="http://yq-hash.github.io/post/ef5d.html">http://yq-hash.github.io/post/ef5d.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -793,8 +1072,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
+                                <a href="/tags/spring/">
+                                    <span class="chip bg-color">spring</span>
                                 </a>
                             
                         </div>
@@ -1229,13 +1508,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/post/e10.html">
+                <a href="/post/bdac.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="SpringBoot入门">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/10.jpg" class="responsive-img" alt="Activity工作流流程部署入门">
                         
-                        <span class="card-title">SpringBoot入门</span>
+                        <span class="card-title">Activity工作流流程部署入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1246,7 +1525,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
                         </span>
                         <span class="publish-author">
                             
@@ -1259,8 +1538,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/Activity/">
+                        <span class="chip bg-color">Activity</span>
                     </a>
                     
                 </div>
@@ -1274,13 +1553,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/227.html">
+                <a href="/post/1fb4.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/20.jpg" class="responsive-img" alt="IP地址详解">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/1.jpg" class="responsive-img" alt="SpringBoot集成Thymeleaf模板引擎">
                         
-                        <span class="card-title">IP地址详解</span>
+                        <span class="card-title">SpringBoot集成Thymeleaf模板引擎</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1291,7 +1570,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-27
                             </span>
                         <span class="publish-author">
                             
@@ -1304,8 +1583,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">网络安全</span>
+                    <a href="/tags/SpringBoot-Thymeleaf/">
+                        <span class="chip bg-color">SpringBoot&amp;Thymeleaf</span>
                     </a>
                     
                 </div>

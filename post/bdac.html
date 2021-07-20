@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Servlet3-0异步支持-AsyncSupported, yq-hash">
+    <meta name="keywords" content="Activity工作流流程部署入门, yq-hash">
     <meta name="description" content="分享生活，分享知识，分享快乐">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Servlet3-0异步支持-AsyncSupported | yq-hash</title>
+    <title>Activity工作流流程部署入门 | yq-hash</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -510,12 +510,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Servlet3-0异步支持-AsyncSupported</h1>
+                    <h1 class="description center-align post-title">Activity工作流流程部署入门</h1>
                 </div>
             </div>
         </div>
@@ -632,8 +632,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
+                            <a href="/tags/Activity/">
+                                <span class="chip bg-color">Activity</span>
                             </a>
                         
                     </div>
@@ -648,28 +648,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-07-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2021-07-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    994
+                    391
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -684,34 +684,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>以下内容均来自官方文档</p>
-<h1 id="1-为什么要异步支持？"><a href="#1-为什么要异步支持？" class="headerlink" title="1.为什么要异步支持？"></a>1.为什么要异步支持？</h1><p>应用服务器中的Web容器通常使用每个客户机请求的服务器线程。在重负载条件下，容器需要大量的线程来满足所有客户机请求。可伸缩性限制包括耗尽内存或耗尽容器线程池。要创建可伸缩的web应用程序，您必须确保没有与请求关联的线程处于闲置状态，因此容器可以使用它们来处理新请求。</p>
-<p>简单点说，就是为了节约服务器端的资源</p>
-<h1 id="2-异步支持的应用场景"><a href="#2-异步支持的应用场景" class="headerlink" title="2.异步支持的应用场景"></a>2.异步支持的应用场景</h1><blockquote>
-<p>①.在构建响应之前，线程需要等待资源变为可用或处理数据。比如，一个应用程序需要查询数据库或者在生成响应之前从远程web服务访问数据。<br>②.在生成响应之前，线程需要等待一个事件。比如，一个应用程序可能必须等待一个JMS信息，在生成响应之前，等待来自另一个客户机的新信息或在队列中可用的新数据。</p>
-</blockquote>
+                <h1 id="流程定义部署"><a href="#流程定义部署" class="headerlink" title="流程定义部署"></a>流程定义部署</h1><h2 id="1-使用流程设计器，使用流程符号，画出流程图"><a href="#1-使用流程设计器，使用流程符号，画出流程图" class="headerlink" title="1.使用流程设计器，使用流程符号，画出流程图"></a>1.使用流程设计器，使用流程符号，画出流程图</h2><p><strong>bpmn文件，png文件</strong><br><strong>都是流程资源文件，用来描述流程，流程中需要的节点，节点的负责人</strong><br><strong>出差申请流程，请假申请流程，报销申请流程</strong>  </p>
+<h2 id="2-把流程的资源文件，进行部署"><a href="#2-把流程的资源文件，进行部署" class="headerlink" title="2.把流程的资源文件，进行部署"></a>2.把流程的资源文件，进行部署</h2><p><strong>上传到数据库中，使用java代码来进行流程部署</strong><br><strong>一次部署操作：ACT_RE_DEPLOYMENT：流程部署表，每部署一次增加一条记录</strong><br><strong>ACT_RE_PROCDEF：生成流程定义信息，部署每个新的流程定义都会在这张表中增加一条记录</strong><br><strong>act_ge_bytearray：流程资源表</strong>   </p>
+<h2 id="3-deployment-和procdef表一对多的关系"><a href="#3-deployment-和procdef表一对多的关系" class="headerlink" title="3.deployment 和procdef表一对多的关系"></a>3.deployment 和procdef表一对多的关系</h2><p><strong>在procdef表中可以有多条记录，每条记录对应一个流程的定义信息</strong><br><strong>张三 出差申请</strong><br><strong>李四 出差申请</strong>    </p>
 <ul>
-<li>这些场景表示限制web应用程序可伸缩性的操作。异步处理指将这些阻塞操作分配给一个新线程，并将与请求关联的线程重新调整到容器  <h1 id="sevlet中的异步处理"><a href="#sevlet中的异步处理" class="headerlink" title="sevlet中的异步处理"></a>sevlet中的异步处理</h1>Java EE为servlet和过滤器提供异步处理支持。如果servlet或过滤器在处理请求时达到了潜在的阻塞操作，它可以将操作分配给异步执行上下文，并将与请求关联的线程立即返回到容器中，而不会生成响应。阻塞操作在不同线程中完成异步执行上下文，可以生成响应或将请求发送给另一个servlet。</li>
+<li><strong>注意：</strong>  </li>
 </ul>
-<p>要在servlet上启用异步处理，可以在@WebServlet注解上将参数asyncsupport设置为true:  </p>
-<blockquote>
-<p>@WebServlet(value=”/some” , asyncSupported=true)<br>public class SomeServlet extends HttpServlet {……}</p>
-</blockquote>
-<p>javax.servlet.AsyncContext类提供了在服务方法中执行异步处理所需的功能。要获得一个AsyncContext实例，请在服务方法的请求对象上调用startAsync()方法;例如:   </p>
-<blockquote>
-<p>protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {<br>……<br>// 获取异步上下文对象<br>AsyncContext startAsync = request.startAsync();<br>……<br>}  </p>
-</blockquote>
-<p>此调用将请求放入异步模式，并确保在退出服务方法后不会提交响应。在阻塞操作完成或将请求发送到另一个servlet之后，你必须在异步上下文中生成响应。</p>
-<p>容器提供了一个不同的线程，其中阻塞操作可以被处理。<br>AsyncContext类提供的方法：</p>
-<p>　　　　void start(Runnable run)：为阻塞操作提供代码，作为实现Runnable接口的类。当调用start方法或使用其他机制将　　　　AsyncContext实例传递给类时，您可以将该类作为一个内部类提供。</p>
-<p>　　　　ServletRequest getRequest()：返回用于初始化此异步上下文的请求。在上面的示例中，请求与服务方法相同。</p>
-<p>你可以使用这个方法在异步上下文获取从请求参数。</p>
-<p>　　　　ServletResponse getResponse()：返回用于初始化此异步上下文的响应。在上面的示例中，响应与服务方法相同。</p>
-<p>你可以在异步上下文中使用此方法来将阻塞操作的结果写入响应。</p>
-<p>　　　　void complete()：完成异步操作并关闭与此异步上下文关联的响应。在异步上下文中写入响应对象之后，调用此方法。</p>
-<p>　　　　void dispatch(String path)：将请求和响应对象分派到给定的路径。在阻塞操作完成之后，使用此方法让另一个servlet写入响应。  </p>
-<h1 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h1><p><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/1.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/2.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/3.png">  </p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/4.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/5.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/6.png">  </p>
+<p>act_re_deployment和act_re_procdef一对多关系，一次部署在流程部署表生成一条记录，但一次部署可以部署多个流程定义，每个流程定义在流程定义表生成一条记录。每一个流程定义在act_ge_bytearray会存在两个资源记录，bpmn和png。 </p>
+<p>建议：一次部署一个流程，这样部署表和流程定义表是一对一有关系，方便读取流程部署及流程定义信息。 </p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -755,7 +735,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yq-hash.github.io/post/2504.html">http://yq-hash.github.io/post/2504.html</a>
+                    <a href="http://yq-hash.github.io/post/bdac.html">http://yq-hash.github.io/post/bdac.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -793,8 +773,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
+                                <a href="/tags/Activity/">
+                                    <span class="chip bg-color">Activity</span>
                                 </a>
                             
                         </div>
@@ -1225,17 +1205,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/e10.html">
+                <a href="/post/bdac.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="SpringBoot入门">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/10.jpg" class="responsive-img" alt="Activity工作流流程部署入门">
                         
-                        <span class="card-title">SpringBoot入门</span>
+                        <span class="card-title">Activity工作流流程部署入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1245,9 +1226,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1256,11 +1237,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/Activity/">
+                        <span class="chip bg-color">Activity</span>
                     </a>
                     
                 </div>
@@ -1274,13 +1256,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/227.html">
+                <a href="/post/ef5d.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/20.jpg" class="responsive-img" alt="IP地址详解">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="spring注解容器组件注册">
                         
-                        <span class="card-title">IP地址详解</span>
+                        <span class="card-title">spring注解容器组件注册</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1291,7 +1273,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
                             </span>
                         <span class="publish-author">
                             
@@ -1304,8 +1286,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">网络安全</span>
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                 </div>

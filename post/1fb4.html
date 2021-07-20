@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Servlet3-0异步支持-AsyncSupported, yq-hash">
+    <meta name="keywords" content="SpringBoot集成Thymeleaf模板引擎, yq-hash">
     <meta name="description" content="分享生活，分享知识，分享快乐">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Servlet3-0异步支持-AsyncSupported | yq-hash</title>
+    <title>SpringBoot集成Thymeleaf模板引擎 | yq-hash</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -510,12 +510,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Servlet3-0异步支持-AsyncSupported</h1>
+                    <h1 class="description center-align post-title">SpringBoot集成Thymeleaf模板引擎</h1>
                 </div>
             </div>
         </div>
@@ -632,8 +632,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
+                            <a href="/tags/SpringBoot-Thymeleaf/">
+                                <span class="chip bg-color">SpringBoot&amp;Thymeleaf</span>
                             </a>
                         
                     </div>
@@ -648,28 +648,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-06-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2021-07-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    994
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    11 分
                 </div>
                 
 
@@ -684,34 +684,257 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>以下内容均来自官方文档</p>
-<h1 id="1-为什么要异步支持？"><a href="#1-为什么要异步支持？" class="headerlink" title="1.为什么要异步支持？"></a>1.为什么要异步支持？</h1><p>应用服务器中的Web容器通常使用每个客户机请求的服务器线程。在重负载条件下，容器需要大量的线程来满足所有客户机请求。可伸缩性限制包括耗尽内存或耗尽容器线程池。要创建可伸缩的web应用程序，您必须确保没有与请求关联的线程处于闲置状态，因此容器可以使用它们来处理新请求。</p>
-<p>简单点说，就是为了节约服务器端的资源</p>
-<h1 id="2-异步支持的应用场景"><a href="#2-异步支持的应用场景" class="headerlink" title="2.异步支持的应用场景"></a>2.异步支持的应用场景</h1><blockquote>
-<p>①.在构建响应之前，线程需要等待资源变为可用或处理数据。比如，一个应用程序需要查询数据库或者在生成响应之前从远程web服务访问数据。<br>②.在生成响应之前，线程需要等待一个事件。比如，一个应用程序可能必须等待一个JMS信息，在生成响应之前，等待来自另一个客户机的新信息或在队列中可用的新数据。</p>
+                <h1 id="SpringBoot集成Thymeleaf模板引擎"><a href="#SpringBoot集成Thymeleaf模板引擎" class="headerlink" title="SpringBoot集成Thymeleaf模板引擎"></a>SpringBoot集成Thymeleaf模板引擎</h1><h2 id="1-1-认识Thymeleaf"><a href="#1-1-认识Thymeleaf" class="headerlink" title="1.1 认识Thymeleaf"></a>1.1 认识Thymeleaf</h2><blockquote>
+<p> Thymeleaf 是一个流行的模板引擎，该模板引擎采用 Java 语言开发<br>    模板引擎是一个技术名词，是跨领域跨平台的概念，在 Java 语言体系下有模板引擎，<br>    在 C#、PHP 语言体系下也有模板引擎，甚至在 JavaScript 中也会用到模板引擎技术，Java 生态下的模板引擎有 Thymeleaf 、Freemaker、Velocity、Beetl（国产） 等。<br>    Thymeleaf 对网络环境不存在严格的要求，既能用于 Web 环境下，也能用于非 Web 环境下。在非 Web 环境下，他能直接显示模板上的静态数据；在 Web 环境下，它能像 Jsp 一样从后台接收数据并替换掉模板上的静态数据。它是基于 HTML 的，以 HTML 标签为载体，Thymeleaf 要寄托在 HTML 标签下实现。<br>    SpringBoot 集成了 Thymeleaf 模板技术，并且 Spring Boot 官方也推荐使用 Thymeleaf 来替代 JSP 技术，Thymeleaf 是另外的一种模板技术，它本身并不属于 Spring Boot，Spring Boot只是很好地集成这种模板技术，作为前端页面的数据展示，在过去的 Java Web 开发中，我们往往会选择使用 Jsp 去完成页面的动态渲染，但是 jsp 需要翻译编译运行，效率低<br>    Thymeleaf 的官方网站：<a target="_blank" rel="noopener" href="http://www.thymeleaf.org/">http://www.thymeleaf.org</a><br>    Thymeleaf 官方手册：<a target="_blank" rel="noopener" href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html">https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html</a>   </p>
 </blockquote>
-<ul>
-<li>这些场景表示限制web应用程序可伸缩性的操作。异步处理指将这些阻塞操作分配给一个新线程，并将与请求关联的线程重新调整到容器  <h1 id="sevlet中的异步处理"><a href="#sevlet中的异步处理" class="headerlink" title="sevlet中的异步处理"></a>sevlet中的异步处理</h1>Java EE为servlet和过滤器提供异步处理支持。如果servlet或过滤器在处理请求时达到了潜在的阻塞操作，它可以将操作分配给异步执行上下文，并将与请求关联的线程立即返回到容器中，而不会生成响应。阻塞操作在不同线程中完成异步执行上下文，可以生成响应或将请求发送给另一个servlet。</li>
+<h2 id="1-2-SpringBoot集成Thymeleaf"><a href="#1-2-SpringBoot集成Thymeleaf" class="headerlink" title="1.2 SpringBoot集成Thymeleaf"></a>1.2 SpringBoot集成Thymeleaf</h2><h3 id="1-2-1-在pom-xml文件中添加依赖"><a href="#1-2-1-在pom-xml文件中添加依赖" class="headerlink" title="1.2.1 在pom.xml文件中添加依赖"></a>1.2.1 在pom.xml文件中添加依赖</h3><ul>
+<li><p>springboot框架集成thymeleaf模板引擎起步依赖  </p>
+<pre><code>  &lt;!--springboot框架集成thymeleaf模板引擎起步依赖--&gt;
+      &lt;dependency&gt;
+          &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+          &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+      &lt;/dependency&gt;  </code></pre>
+</li>
 </ul>
-<p>要在servlet上启用异步处理，可以在@WebServlet注解上将参数asyncsupport设置为true:  </p>
+<h3 id="1-2-2-在SpringBoot核心文件中对Thymeleaf进行配置"><a href="#1-2-2-在SpringBoot核心文件中对Thymeleaf进行配置" class="headerlink" title="1.2.2 在SpringBoot核心文件中对Thymeleaf进行配置"></a>1.2.2 在SpringBoot核心文件中对Thymeleaf进行配置</h3><pre><code>#设置thymeleaf模拟引擎的缓存，设置为false关闭，默认为true开启
+spring.thymeleaf.cache=false
+
+#设置thymeleaf模板引擎的前/后缀（可选,可以不写），springboot默认配置为 /templates/*.xml
+spring.thymeleaf.mode=HTML
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html</code></pre>
+<h3 id="1-2-3-创建Controller映射到模板页面（和SpringMVC基本一致）"><a href="#1-2-3-创建Controller映射到模板页面（和SpringMVC基本一致）" class="headerlink" title="1.2.3 创建Controller映射到模板页面（和SpringMVC基本一致）"></a>1.2.3 创建Controller映射到模板页面（和SpringMVC基本一致）</h3><pre><code>@Controller
+public class IndexController {
+    @RequestMapping("/user/index.do")
+    public String index(Model model){
+        model.addAttribute("data","Springboot使用thymeleaf模板引擎");
+        return "index";
+    }
+}</code></pre>
+<h3 id="1-2-4-在src-main-resource下的templates下新建index-html用于展示数据"><a href="#1-2-4-在src-main-resource下的templates下新建index-html用于展示数据" class="headerlink" title="1.2.4 在src/main/resource下的templates下新建index.html用于展示数据"></a>1.2.4 在src/main/resource下的templates下新建index.html用于展示数据</h3><p>HTML 页面的&lt;html&gt;元素中加入以下属性：</p>
 <blockquote>
-<p>@WebServlet(value=”/some” , asyncSupported=true)<br>public class SomeServlet extends HttpServlet {……}</p>
+<p>xmlns:th=”<a target="_blank" rel="noopener" href="http://www.thymeleaf.org&quot;/">http://www.thymeleaf.org"</a>  </p>
 </blockquote>
-<p>javax.servlet.AsyncContext类提供了在服务方法中执行异步处理所需的功能。要获得一个AsyncContext实例，请在服务方法的请求对象上调用startAsync()方法;例如:   </p>
-<blockquote>
-<p>protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {<br>……<br>// 获取异步上下文对象<br>AsyncContext startAsync = request.startAsync();<br>……<br>}  </p>
-</blockquote>
-<p>此调用将请求放入异步模式，并确保在退出服务方法后不会提交响应。在阻塞操作完成或将请求发送到另一个servlet之后，你必须在异步上下文中生成响应。</p>
-<p>容器提供了一个不同的线程，其中阻塞操作可以被处理。<br>AsyncContext类提供的方法：</p>
-<p>　　　　void start(Runnable run)：为阻塞操作提供代码，作为实现Runnable接口的类。当调用start方法或使用其他机制将　　　　AsyncContext实例传递给类时，您可以将该类作为一个内部类提供。</p>
-<p>　　　　ServletRequest getRequest()：返回用于初始化此异步上下文的请求。在上面的示例中，请求与服务方法相同。</p>
-<p>你可以使用这个方法在异步上下文获取从请求参数。</p>
-<p>　　　　ServletResponse getResponse()：返回用于初始化此异步上下文的响应。在上面的示例中，响应与服务方法相同。</p>
-<p>你可以在异步上下文中使用此方法来将阻塞操作的结果写入响应。</p>
-<p>　　　　void complete()：完成异步操作并关闭与此异步上下文关联的响应。在异步上下文中写入响应对象之后，调用此方法。</p>
-<p>　　　　void dispatch(String path)：将请求和响应对象分派到给定的路径。在阻塞操作完成之后，使用此方法让另一个servlet写入响应。  </p>
-<h1 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h1><p><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/1.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/2.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/3.png">  </p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/4.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/5.png"><br><img src="/images/loading.png" data-original="Servlet3-0%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81-AsyncSupported/6.png">  </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;!--
+xmlns:th="http://www.thymeleaf.org"
+xmlns -&gt;命名空间
+命名空间后面的地址是一个约束文件，约束你使用thymeleaf表达式
+的一个规则文件，就好比我们之前在xml文件中的一些dtd文件
+--&gt;
+&lt;!--
+    为什么使用了th前缀就可以获取后台数据？
+    那是因为项目中添加了thymeleaf的核心依赖，它的核心依赖会去
+    解析thymeleaf自己定义的这些标签名称，通过thymeleaf自己的java核心
+    代码来获取我们的后台数据
+--&gt;
+&lt;html lang="en" xmlns:th="http://www.thymeleaf.org"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;index&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!--
+        &lt;!--Thymeleaf 前端框架以 Html 为载体--&gt;
+        thymeleaf模板引擎的页面必须通过中央调度器
+    --&gt;
+    &lt;h2 th:text="${data}"&gt;thymeleaf模板引擎&lt;/h2&gt;
+&lt;/body&gt;</code></pre>
+
+
+<h3 id="1-2-5-启动程序，浏览器访问"><a href="#1-2-5-启动程序，浏览器访问" class="headerlink" title="1.2.5 启动程序，浏览器访问"></a>1.2.5 启动程序，浏览器访问</h3><ul>
+<li><strong>注意： Springboot 使 用 thymeleaf 作 为 视 图 展 示 ， 约 定 将 模 板 文 件 放 置 在src/main/resource/templates 目录下，静态资源放置在 src/main/resource/static 目录下</strong>   <h2 id="2-2-Thymeleaf表达式"><a href="#2-2-Thymeleaf表达式" class="headerlink" title="2.2 Thymeleaf表达式"></a>2.2 Thymeleaf表达式</h2></li>
+</ul>
+<ol>
+<li><p>创建实体 User实体类  </p>
+<pre><code> public class User {
+     private Integer id;
+     private String name;
+     private Integer age;
+
+     public Integer getId() {
+         return id;
+     }
+
+     public void setId(Integer id) {
+         this.id = id;
+     }
+
+     public String getName() {
+         return name;
+     }
+
+     public void setName(String name) {
+         this.name = name;
+     }
+
+     public Integer getAge() {
+         return age;
+     }
+
+     public void setAge(Integer age) {
+         this.age = age;
+     }
+ }</code></pre>
+</li>
+<li><p>创建ThymeleafController控制层类  </p>
+<p> @Controller<br> public class ThymeleafController {</p>
+<pre><code> @RequestMapping(value = "/index.do")
+ public String index(Model model){
+     User user = new User();
+     user.setId(1001);
+     user.setName("zhangsan");
+     user.setAge(21);
+
+     model.addAttribute("user",user);
+
+     return "index";
+ }</code></pre>
+<p> }</p>
+</li>
+<li><p>在src/main/resources/templates下创建html模板引擎  </p>
+<h3 id="2-2-1-标准变量表达式"><a href="#2-2-1-标准变量表达式" class="headerlink" title="2.2.1 标准变量表达式"></a>2.2.1 标准变量表达式</h3></li>
+</ol>
+<ul>
+<li><strong>注意：th:text=”” 是 Thymeleaf 的一个属性，用于文本的显示</strong>  </li>
+</ul>
+<ol start="4">
+<li><p>语法 ${…}  </p>
+</li>
+<li><p>说明<br>标准变量表达式用于访问容器（tomcat）上下文环境中的变量，功能和 EL 中的 ${} 相<br>同。Thymeleaf 中的变量表达式使用 ${变量名} 的方式获取 Controller 中 model 其中的数据  </p>
+</li>
+<li><p>代码  </p>
+<pre><code> &lt;h1&gt;标准变量表达式：${} -&gt; 推荐&lt;/h1&gt;
+     用户标识:&lt;span th:text="${user.id}"&gt;&lt;/span&gt;&lt;br&gt;
+     用户姓名：&lt;span th:text="${user.name}"&gt;&lt;/span&gt;&lt;br&gt;
+     用户年龄：&lt;span th:text="${user.age}"&gt;&lt;/span&gt;&lt;br&gt;  </code></pre>
+<h3 id="2-2-2-选择变量表达式（了解）"><a href="#2-2-2-选择变量表达式（了解）" class="headerlink" title="2.2.2 选择变量表达式（了解）"></a>2.2.2 选择变量表达式（了解）</h3></li>
+<li><p>语法：*{…}  </p>
+</li>
+<li><p>说明<br>选择变量表达式，也叫星号变量表达式，使用 th:object 属性来绑定对象<br>选择表达式首先使用 th:object 来绑定后台传来的 User 对象，然后使用 * 来代表这个对象，后面 {} 中的值是此对象中的属性。<br>选择变量表达式 *{…} 是另一种类似于标准变量表达式 ${…} 表示变量的方法<br>选择变量表达式在执行时是在选择的对象上求解，而${…}是在上下文的变量 Model 上求<br>解，这种写法比标准变量表达式繁琐，只需要大家了解即可  </p>
+</li>
+<li><p>代码  </p>
+<pre><code>&lt;h1&gt;选择变量表达式(星号表达式)：*{} -&gt; 不推荐&lt;/h1&gt;
+
+ &lt;div th:object="${user}"&gt;
+     用户标识:&lt;span th:text="*{id}"&gt;&lt;/span&gt;&lt;br&gt;
+     用户姓名：&lt;span th:text="*{name}"&gt;&lt;/span&gt;&lt;br&gt;
+     用户年龄：&lt;span th:text="*{age}"&gt;&lt;/span&gt;&lt;br&gt;
+ &lt;/div&gt;</code></pre>
+<h3 id="2-2-3-标准变量表达式和选择变量表达式混合使用"><a href="#2-2-3-标准变量表达式和选择变量表达式混合使用" class="headerlink" title="2.2.3 标准变量表达式和选择变量表达式混合使用"></a>2.2.3 标准变量表达式和选择变量表达式混合使用</h3><p>标准变量和选择变量表达式可以混合使用，也可以不混合使用，使用 th:object 进行对<br>象的选择，也可以直接使用 *{…} 获取数据</p>
+</li>
+<li><p>代码  </p>
+<pre><code>&lt;h1&gt;标签变量表达式与选择变量表达式的混合使用（不推荐）&lt;/h1&gt;
+用户标识:&lt;span th:text="*{user.id}"&gt;&lt;/span&gt;&lt;br&gt;
+用户姓名：&lt;span th:text="*{user.name}"&gt;&lt;/span&gt;&lt;br&gt;
+用户年龄：&lt;span th:text="*{user.age}"&gt;&lt;/span&gt;&lt;br&gt;</code></pre>
+<h3 id="2-2-4-URL表达式"><a href="#2-2-4-URL表达式" class="headerlink" title="2.2.4 URL表达式"></a>2.2.4 URL表达式</h3></li>
+<li><p>语法@{……}  </p>
+</li>
+<li><p>说明<br>主要用于链接、地址的展示，可用于  </p>
+<pre><code>&lt;script src="..."&gt;、&lt;link href="..."&gt;、&lt;a href="..."&gt;、&lt;form action="..."&gt;、&lt;img src=""&gt;等，可以在 URL 路径中动态获取数据  </code></pre>
+</li>
+<li><p>代码  </p>
+</li>
+</ol>
+<ol>
+<li><p>创建 url.html  </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" xmlns:th="http://www.thymeleaf.org"&gt;
+&lt;head&gt;
+ &lt;meta charset="UTF-8"&gt;
+ &lt;title&gt;url&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ &lt;h1&gt;URL路径表达式：@{……}&lt;/h1&gt;
+ &lt;h2&gt;a标签中的绝对路径（没有参数）&lt;/h2&gt;
+ &lt;a href="/index.do"&gt;传统写法，跳转到/index.do&lt;/a&gt;&lt;br&gt;  &lt;!-- http://localhost:8080/index.do--&gt;
+ &lt;a th:href="@{http://www.baidu.com}"&gt;路径表达式，跳转到百度&lt;/a&gt;&lt;br&gt;
+ &lt;a th:href="@{http://localhost:8080/test/index.do}"&gt;路径表达式，跳转到/index.do&lt;/a&gt;&lt;br&gt;
+ &lt;a href="http://localhost:8080/test/index.do"&gt;传统写法，跳转到/index.do&lt;/a&gt;&lt;br&gt;
+
+ &lt;h2&gt;URL路径表达式，相对路径[没有参数]（实际开发中推荐使用的）&lt;/h2&gt;
+ &lt;a th:href="@{/index.do}"&gt;跳转到/index.do&lt;/a&gt;&lt;br&gt;  &lt;!--http://localhost:8080/test/index.do--&gt;
+
+ &lt;h2&gt;绝对路径（带参数）（不推荐使用）&lt;/h2&gt;
+ &lt;a href="http://localhost:8080/test/properties.do?name='lisi'"&gt;绝对路径，带参数：/test/properties.do,并带参数name&lt;/a&gt;&lt;br&gt;
+ &lt;a th:href="@{http://localhost:8080/test/properties.do?name=lisi}"&gt;路径表达式写法，带参数：、test,并带参数name&lt;/a&gt;&lt;br&gt;
+
+ &lt;h2&gt;相对路径（带参数）&lt;/h2&gt;
+ &lt;a th:href="@{/properties.do?name=lisi}"&gt;相对路径，带参数&lt;/a&gt;
+
+ &lt;h2&gt;相对路径（带参数：后台获取的参数值）&lt;/h2&gt;
+ &lt;!--/properties.do?name=1001--&gt;
+ &lt;a th:href="@{'/properties.do?name='+${username}}"&gt;相对路径（带参数：后台获取的参数值）&lt;/a&gt;
+
+ &lt;h2&gt;相对路径（带多个参数：后台获取的参数值）&lt;/h2&gt;
+ &lt;!--
+     /test.do?id=1001&amp;username=zhangsan&amp;age=25
+ --&gt;
+ &lt;a th:href="@{'/test.do?id='+${id}+'&amp;username='+${username}+'&amp;age='+${age}}"&gt;相对路径（带多个参数：后台获取的参数值）&lt;/a&gt;&lt;br&gt;
+ &lt;a th:href="@{/test.do(id=${id},username=${username},age=${age})}"&gt;强烈推荐-相对路径（带多个参数：后台获取的参数值）&lt;/a&gt;&lt;br&gt;
+ &lt;a th:href="@{'/test1.do/'+${id}}"&gt;请求路径为RSTEful风格&lt;/a&gt;&lt;br&gt;
+ &lt;a th:href="@{'/test2.do/'+${id}+'/'+${username}}"&gt;请求路径为RSTEful风格&lt;/a&gt;&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</li>
+<li><p>为了演示加上下文的效果，在 application.properties 中配置项目上下文   </p>
+<pre><code>#设置上下文根
+server.servlet.context-path=/test/
+#设置缓存
+spring.thymeleaf.cache=false
+#可选
+spring.thymeleaf.mode=HTML
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html</code></pre>
+</li>
+<li><p>在 ThymeleafController 中添加如下方法：  </p>
+<pre><code> @Controller
+ public class ThymeleafController {
+     @RequestMapping(value = "/index.do")
+     public String index(Model model){
+         User user = new User();
+         user.setId(1001);
+         user.setName("zhangsan");
+         user.setAge(21);
+
+         model.addAttribute("user",user);
+
+         return "index";
+     }
+
+     @RequestMapping(value = "/properties.do")
+     public @ResponseBody
+     String index(String name){
+         return "properties"+name;
+     }
+
+     @RequestMapping(value = "/url.do")
+     public String indexs(Model model){
+         model.addAttribute("id",1001);
+         model.addAttribute("username","zhangsan");
+         model.addAttribute("age",25);
+
+         return "url";
+     }
+
+     public @ResponseBody Object index(Integer id,String username,Integer age){
+         return "路径表达式：相对路径 id="+id+",username="+username+",age="+age;
+     }
+
+     @RequestMapping(value = "test1.do/{id}")
+     public @ResponseBody String index1(@PathVariable("id") Integer id){
+         return "ID:"+id;
+     }
+
+     @RequestMapping(value = "test2.do/{id}/{username}")
+     public @ResponseBody String index2(@PathVariable("id") Integer id,
+                                     @PathVariable("username") String username){
+         return "ID:"+id+"-------------"+"username:"+username;
+     }
+ }</code></pre>
+</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -755,7 +978,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yq-hash.github.io/post/2504.html">http://yq-hash.github.io/post/2504.html</a>
+                    <a href="http://yq-hash.github.io/post/1fb4.html">http://yq-hash.github.io/post/1fb4.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -793,8 +1016,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
+                                <a href="/tags/SpringBoot-Thymeleaf/">
+                                    <span class="chip bg-color">SpringBoot&amp;Thymeleaf</span>
                                 </a>
                             
                         </div>
@@ -1229,13 +1452,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/post/e10.html">
+                <a href="/post/ef5d.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="SpringBoot入门">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="spring注解容器组件注册">
                         
-                        <span class="card-title">SpringBoot入门</span>
+                        <span class="card-title">spring注解容器组件注册</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1246,7 +1469,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
                         </span>
                         <span class="publish-author">
                             
@@ -1259,8 +1482,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                 </div>
@@ -1274,13 +1497,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/227.html">
+                <a href="/post/d8b4.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/20.jpg" class="responsive-img" alt="IP地址详解">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/4.jpg" class="responsive-img" alt="SpringBoot使用拦截器">
                         
-                        <span class="card-title">IP地址详解</span>
+                        <span class="card-title">SpringBoot使用拦截器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1291,7 +1514,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
                             </span>
                         <span class="publish-author">
                             
@@ -1304,8 +1527,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">网络安全</span>
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>
