@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Activity工作流流程部署入门, yq-hash">
+    <meta name="keywords" content="Activiti工作流流程部署入门, yq-hash">
     <meta name="description" content="分享生活，分享知识，分享快乐">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Activity工作流流程部署入门 | yq-hash</title>
+    <title>Activiti工作流流程部署入门 | yq-hash</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -510,12 +510,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Activity工作流流程部署入门</h1>
+                    <h1 class="description center-align post-title">Activiti工作流流程部署入门</h1>
                 </div>
             </div>
         </div>
@@ -632,8 +632,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Activity/">
-                                <span class="chip bg-color">Activity</span>
+                            <a href="/tags/Activiti/">
+                                <span class="chip bg-color">Activiti</span>
                             </a>
                         
                     </div>
@@ -655,21 +655,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-20
+                    2021-07-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    391
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    13 分
                 </div>
                 
 
@@ -684,14 +684,360 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="流程定义部署"><a href="#流程定义部署" class="headerlink" title="流程定义部署"></a>流程定义部署</h1><h2 id="1-使用流程设计器，使用流程符号，画出流程图"><a href="#1-使用流程设计器，使用流程符号，画出流程图" class="headerlink" title="1.使用流程设计器，使用流程符号，画出流程图"></a>1.使用流程设计器，使用流程符号，画出流程图</h2><p><strong>bpmn文件，png文件</strong><br><strong>都是流程资源文件，用来描述流程，流程中需要的节点，节点的负责人</strong><br><strong>出差申请流程，请假申请流程，报销申请流程</strong>  </p>
-<h2 id="2-把流程的资源文件，进行部署"><a href="#2-把流程的资源文件，进行部署" class="headerlink" title="2.把流程的资源文件，进行部署"></a>2.把流程的资源文件，进行部署</h2><p><strong>上传到数据库中，使用java代码来进行流程部署</strong><br><strong>一次部署操作：ACT_RE_DEPLOYMENT：流程部署表，每部署一次增加一条记录</strong><br><strong>ACT_RE_PROCDEF：生成流程定义信息，部署每个新的流程定义都会在这张表中增加一条记录</strong><br><strong>act_ge_bytearray：流程资源表</strong>   </p>
-<h2 id="3-deployment-和procdef表一对多的关系"><a href="#3-deployment-和procdef表一对多的关系" class="headerlink" title="3.deployment 和procdef表一对多的关系"></a>3.deployment 和procdef表一对多的关系</h2><p><strong>在procdef表中可以有多条记录，每条记录对应一个流程的定义信息</strong><br><strong>张三 出差申请</strong><br><strong>李四 出差申请</strong>    </p>
+                <h1 id="1-1流程定义部署"><a href="#1-1流程定义部署" class="headerlink" title="1.1流程定义部署"></a>1.1流程定义部署</h1><h2 id="1-1-1、使用流程设计器，使用流程符号，画出流程图"><a href="#1-1-1、使用流程设计器，使用流程符号，画出流程图" class="headerlink" title="1.1.1、使用流程设计器，使用流程符号，画出流程图"></a>1.1.1、使用流程设计器，使用流程符号，画出流程图</h2><p><strong>bpmn文件，png文件</strong><br><strong>都是流程资源文件，用来描述流程，流程中需要的节点，节点的负责人</strong><br><strong>出差申请流程，请假申请流程，报销申请流程</strong>  </p>
+<h2 id="1-1-2、把流程的资源文件，进行部署"><a href="#1-1-2、把流程的资源文件，进行部署" class="headerlink" title="1.1.2、把流程的资源文件，进行部署"></a>1.1.2、把流程的资源文件，进行部署</h2><p><strong>上传到数据库中，使用java代码来进行流程部署</strong><br><strong>一次部署操作：ACT_RE_DEPLOYMENT：流程部署表，每部署一次增加一条记录</strong><br><strong>ACT_RE_PROCDEF：生成流程定义信息，部署每个新的流程定义都会在这张表中增加一条记录</strong><br><strong>act_ge_bytearray：流程资源表</strong>   </p>
+<h2 id="1-1-3、deployment-和procdef表一对多的关系"><a href="#1-1-3、deployment-和procdef表一对多的关系" class="headerlink" title="1.1.3、deployment 和procdef表一对多的关系"></a>1.1.3、deployment 和procdef表一对多的关系</h2><p><strong>在procdef表中可以有多条记录，每条记录对应一个流程的定义信息</strong><br><strong>张三 出差申请</strong><br><strong>李四 出差申请</strong>    </p>
 <ul>
 <li><strong>注意：</strong>  </li>
 </ul>
 <p>act_re_deployment和act_re_procdef一对多关系，一次部署在流程部署表生成一条记录，但一次部署可以部署多个流程定义，每个流程定义在流程定义表生成一条记录。每一个流程定义在act_ge_bytearray会存在两个资源记录，bpmn和png。 </p>
-<p>建议：一次部署一个流程，这样部署表和流程定义表是一对一有关系，方便读取流程部署及流程定义信息。 </p>
+<p>建议：一次部署一个流程，这样部署表和流程定义表是一对一有关系，方便读取流程部署及流程定义信息。  </p>
+<h1 id="2-1总结回顾"><a href="#2-1总结回顾" class="headerlink" title="2.1总结回顾"></a>2.1总结回顾</h1><h2 id="2-1-1、Actibiti的表说明"><a href="#2-1-1、Actibiti的表说明" class="headerlink" title="2.1.1、Actibiti的表说明"></a>2.1.1、Actibiti的表说明</h2><ul>
+<li><p><strong>使用25张表</strong>  </p>
+<blockquote>
+<p>   ACT_RE : ‘RE’表示repository。这个前缀的表包含了流程定义和流程静态资源（图片，规则，等等）。<br>  ACT_RU : ‘RU’表示runtime。这些运行时的表包含流程实例任务，变量，异步任务等运行中的数据Activiti只在流程实例执行过程中保存这些数据，在流程结束时就会删除这些记录。<br>  ACT_HI：’HI’表示histroy。这些包含历史记录，比如历史流程记录实例，变量，任务等等。<br>  ACT_GE: ‘GE’表示general。通用数据，用于不同场景下  </p>
+</blockquote>
+<h2 id="2-2-2、Activiti的架构、类关系图"><a href="#2-2-2、Activiti的架构、类关系图" class="headerlink" title="2.2.2、Activiti的架构、类关系图"></a>2.2.2、Activiti的架构、类关系图</h2><blockquote>
+<p>   获取流程引擎的工具类<br>  ProcessEngines.使用默认方式获取配置文件，构造流程引擎。配置文件名字activiti.cfg.xml，放在classpath下<br>  ProcessEngineConfiguration.可以自定义配置文件名<br>  使用上面2个工具类，都可以获取流程引擎<br>  ProcessEngine：流程引擎。获取各种服务的接口。<br>  服务接口：用于部署、执行、管理，使用这些接口就是在操作对应的数据表  </p>
+<pre><code>      RepositoryService     资源管理类  
+      RuntimeService        运行时管理类  
+      TaskService           任务管理类  
+      HistoryService        历史数据管理类  
+      ManagementService     流程引擎管理类</code></pre>
+</blockquote>
+<h2 id="2-2-3、BPMN插件"><a href="#2-2-3、BPMN插件" class="headerlink" title="2.2.3、BPMN插件"></a>2.2.3、BPMN插件</h2><h2 id="2-2-4、流程符号、画流程图"><a href="#2-2-4、流程符号、画流程图" class="headerlink" title="2.2.4、流程符号、画流程图"></a>2.2.4、流程符号、画流程图</h2><blockquote>
+<p>   流程符号：事件Event、活动Activity,网关 Gateway，流向<br>  使用流程设计器画出流程图<br>  bpmn文件本质上是xml文件，因为安装了actiBPM插件才能可视化的看到流程内容<br>  创建bpmn文件，在流程设计器使用流程符号来表达流程,指定流程的Key，指定任务负责人<br>  生成PNG文件，把bpmn文件后缀改为xml，在这个文件上右键选择Diagrams-&gt;show BPMN2.0 Desinger,打开窗口，点击导出文件按钮，选择导出文件的类型为PNG。要注意乱码问题</p>
+</blockquote>
+<h2 id="2-2-5、部署流程"><a href="#2-2-5、部署流程" class="headerlink" title="2.2.5、部署流程"></a>2.2.5、部署流程</h2><blockquote>
+<p>   使用Activiti提供的API把流程图的内容写入数据库中<br>  属于资源类操作，使用RepositoryService<br>  单文件部署：把bpmn文件和png文件一个一个处理<br>  压缩包部署：把bpmn文件和png文件打压缩包来处理<br>  核心代码：<br>  Deployment deploy = repositoryService.createDeployment()<br>  部署操作表：<br>  act_re_deployment 部署表<br>  act_re_procdef 流程定义表<br>  act_ge_bytearray   资源表   </p>
+</blockquote>
+</li>
+<li><p><strong>单文件部署代码</strong>  </p>
+<pre><code>@Test
+  public void testDeployment(){
+      //1.创建ProcessEngine
+      //先构建ProcessEngineConfiguration
+      ProcessEngineConfiguration processEngineConfiguration = ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("activiti.cfg.xml",
+              "processEngineConfiguration");
+      ProcessEngine processEngine = processEngineConfiguration.buildProcessEngine();
+      //2.获取RepositoryService
+      RepositoryService rs = processEngine.getRepositoryService();
+      //3.使用service进行流程的部署，定义一个流程的名字，把bpmn和png部署到数据库中
+      Deployment deploy = rs.createDeployment().name("出差申请流程")
+              .addClasspathResource("bpmn/evection.bpmn")
+              .addClasspathResource("bpmn/evection.png")
+              .deploy();
+      //4、输出部署信息
+      System.out.println("流程部署id="+deploy.getId());
+      System.out.println("流程部署名称="+deploy.getName());
+
+  }</code></pre>
+</li>
+<li><p><strong>压缩包部署代码</strong>  </p>
+<pre><code>@Test
+  public void deployProcessByZip(){
+      //    获取流程引擎
+      ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+      //    获取RepositoryService服务
+      RepositoryService repositoryService = processEngine.getRepositoryService();
+      //     流程部署
+      //    读取资源包文件，构造成inputStream
+      InputStream inputStream = this.getClass()
+              .getClassLoader()
+              .getResourceAsStream("bpmn/evection.zip");
+      //  用inputStream 构造 ZipInputStream
+      ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+      //  使用压缩包的流进行流程的部署
+      Deployment deploy = repositoryService.createDeployment()
+              .addZipInputStream(zipInputStream)
+              .deploy();
+
+      System.out.println("流程部署ID:"+deploy.getId());
+      System.out.println("流程部署名称"+deploy.getName());
+  }</code></pre>
+<h2 id="2-2-6、启动流程实例"><a href="#2-2-6、启动流程实例" class="headerlink" title="2.2.6、启动流程实例"></a>2.2.6、启动流程实例</h2><blockquote>
+<p>   使用RuntimeService根据流程定义的Key<br>  核心代码：<br>  ProcessInstance instance = runtimeService.startProcessInstanceByKey(“myEvection”);<br>  操作表：  </p>
+<pre><code>  /*  
+  * 启动流程实例  
+  * 'act_hi_actinst' 流程实例执行历史  
+  * 'act_hi_identitylink' 流程参与者的历史信息  
+  * 'act_hi_procinst' 流程实例的历史信息  
+  * 'act_hi_taskinst' 任务的历史信息  
+  * 'act_ru_execution' 流程执行的信息  
+  * 'act_ru_identitylink' 流程参与者信息  
+  * 'act_ru_task' 任务信息  
+  * */  </code></pre>
+</blockquote>
+</li>
+<li><p><strong>流程实例代码</strong>  </p>
+<pre><code>@Test
+  public void testStartProcess(){
+//    1.创建ProcessEngine
+      ProcessEngine processengine = ProcessEngines.getDefaultProcessEngine();
+//    2.获取RunTimeService
+      RuntimeService runtimeService = processengine.getRuntimeService();
+//    3.根据流程定义的id启动流程
+      ProcessInstance instance = runtimeService.startProcessInstanceByKey("myEvection");
+//    4.输出内容
+      System.out.println("流程定义ID:"+instance.getProcessDefinitionId());
+      System.out.println("流程实例ID："+instance.getId());
+      System.out.println("流程活动的ID:"+instance.getActivityId());
+  }</code></pre>
+<h2 id="2-2-7、任务查询"><a href="#2-2-7、任务查询" class="headerlink" title="2.2.7、任务查询"></a>2.2.7、任务查询</h2><blockquote>
+<p>   使用TaskService,根据流程定义的Key，任务的负责人来进行查询<br>  核心代码：<br>  taskService.createTaskQuery()<br>  .processDefinitionKey(“MyEvection”) //流程key<br>  .taskAssignee(“zhangsan”) //要查询的负责人<br>  .list();  </p>
+</blockquote>
+</li>
+<li><p><strong>任务查询代码</strong>  </p>
+<pre><code>@Test
+  public void testFindPersonalTaskList(){
+  //    1.读取流程引擎
+      ProcessEngineConfiguration pecfr = ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("activiti.cfg.xml", "processEngineConfiguration");
+      ProcessEngine processEngine = pecfr.buildProcessEngine();
+  //    2.获取taskService
+      TaskService taskService = processEngine.getTaskService();
+  //    3.根据流程key 和 任务负责人 查询任务
+      List&lt;Task&gt; taskList = taskService.createTaskQuery()
+              .processDefinitionKey("myEvection") //流程定义key
+              .taskAssignee("zhangsan") //任务负责人名称
+              .list();
+      //    4.输出
+      for (Task task : taskList) {
+          System.out.println("流程实例ID = "+task.getProcessDefinitionId());
+          System.out.println("任务ID = "+task.getId());
+          System.out.println("任务负责人 = "+task.getAssignee());
+          System.out.println("任务名称 = "+task.getName());
+      }
+  }</code></pre>
+<h2 id="2-2-8、任务完成"><a href="#2-2-8、任务完成" class="headerlink" title="2.2.8、任务完成"></a>2.2.8、任务完成</h2><blockquote>
+<p>   使用TaskService，用任务Id完成任务<br>  核心代码：<br>  taskService.complete(“5005”);  </p>
+</blockquote>
+</li>
+<li><p><strong>任务完成代码</strong>  </p>
+<pre><code>@Test
+  public void completeTask1(){
+  //    获取流程引擎
+      ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+  //    获取TaskService
+      TaskService taskService = processEngine.getTaskService();
+  //    根据任务id完成任务
+      taskService.complete("5005");
+      System.out.println("完成个人任务！");
+  }</code></pre>
+</li>
+<li><p><strong>结合任务查询和任务完成代码</strong>  </p>
+<pre><code>@Test
+  public void completeTask2(){
+  //    获取流程引擎
+      ProcessEngineConfiguration processEngineConfiguration = ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("activiti.cfg.xml", "processEngineConfiguration");
+      ProcessEngine processEngine = processEngineConfiguration.buildProcessEngine();
+      //    获取TaskService操作任务的服务
+      TaskService taskService = processEngine.getTaskService();
+
+      //获取liuchuanwang - myEvection的任务
+  //    Task task = taskService.createTaskQuery()
+  //            .processDefinitionKey("myEvection")
+  //            .taskAssignee("liuchuanwang")
+  //            .singleResult();
+  //    System.out.println("流程实例ID = "+task.getProcessDefinitionId());
+  //    System.out.println("任务ID = "+task.getId());
+  //    System.out.println("任务负责人 = "+task.getAssignee());
+  //    System.out.println("任务名称 = "+task.getName());
+  //    根据任务id完成liuchuanwang任务
+  //    taskService.complete(task.getId());
+
+      //获取dengyonfeng - myEvection的任务
+      //Task task = taskService.createTaskQuery()
+      //        .processDefinitionKey("myEvection")
+      //        .taskAssignee("dengyonfeng")
+      //        .singleResult();
+      //System.out.println("流程实例ID = "+task.getProcessDefinitionId());
+      //System.out.println("任务ID = "+task.getId());
+      //System.out.println("任务负责人 = "+task.getAssignee());
+      //System.out.println("任务名称 = "+task.getName());
+          //    根据任务id完成dengyonfeng任务
+      //taskService.complete(task.getId());
+
+      //获取yangqi - myEvection的任务
+      Task task = taskService.createTaskQuery()
+              .processDefinitionKey("myEvection")
+              .taskAssignee("yangqi")
+              .singleResult();
+      System.out.println("流程实例ID = "+task.getProcessDefinitionId());
+      System.out.println("任务ID = "+task.getId());
+      System.out.println("任务负责人 = "+task.getAssignee());
+      System.out.println("任务名称 = "+task.getName());
+      //    完成的liuchuanwang任务，完成dengyonfeng的任务，完成yangqi的任务
+      taskService.complete(task.getId());
+  }</code></pre>
+<h2 id="2-3-1-流程定义信息查询"><a href="#2-3-1-流程定义信息查询" class="headerlink" title="2.3.1 流程定义信息查询"></a>2.3.1 流程定义信息查询</h2><blockquote>
+<p>   查询流程相关信息，包含流程定义，流程部署，流程定义版本<br>  查询操作表：<br>  ACT_RE_PROCDEF 已部署的流程定义表<br>  核心代码：  </p>
+<pre><code>      ProcessDefinitionQuery definitionQuery = repositoryService.createProcessDefinitionQuery();  
+      List&lt;ProcessDefinition&gt; definitionList = definitionQuery.processDefinitionKey("myEvection")  
+      .orderByProcessDefinitionVersion()  
+      .desc()  
+      .list();  </code></pre>
+</blockquote>
+</li>
+<li><p><strong>流程定义查询代码</strong>  </p>
+<pre><code>@Test
+  public void queryProcessDefinition(){
+  //    获取流程引擎
+      ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+  //    获取repositoryService
+      RepositoryService repositoryService = processEngine.getRepositoryService();
+  //    获取ProcessDefinitionQuery对象
+      ProcessDefinitionQuery definitionQuery = repositoryService.createProcessDefinitionQuery();
+  //    查询当前所有的流程定义，返回流程定义信息的集合
+  //    processDefinitionKey(流程定义Key)
+  //    orderByProcessDefinitionVersion() 通过版本号进行排序
+  //    desc 倒序
+  //    list 查询出所有的内容
+      List&lt;ProcessDefinition&gt; definitionList = definitionQuery.processDefinitionKey("myEvection")
+              .orderByProcessDefinitionVersion()
+              .desc()
+              .list();
+  //输出信息
+      for (ProcessDefinition processDefinition : definitionList) {
+          System.out.println("流程定义Id = "+processDefinition.getId());
+          System.out.println("流程定义Name = "+processDefinition.getName());
+          System.out.println("流程定义Key = "+processDefinition.getKey());
+          System.out.println("流程定义Version = "+processDefinition.getVersion());
+      }
+  }</code></pre>
+<h2 id="2-3-2-删除流程部署"><a href="#2-3-2-删除流程部署" class="headerlink" title="2.3.2 删除流程部署"></a>2.3.2 删除流程部署</h2><blockquote>
+<p>   流程删除<br>  删除操作表：<br>  act_re_deployment 部署表<br>  act_re_procdef 流程定义表<br>  act_ge_bytearray   资源表<br>  核心代码：<br>  repositoryService.deleteDeployment(部署ID);<br>  说明：<br>  1） 使用repositoryService 删除流程定义，历史表信息不会被删除<br>  2） 如果该流程定义下没有正在运行的流程，则可以用普通删除。<br>  如果该流程定义下存在运行的流程，使用普通删除报错，可用级联删除方法将流程及相关记录全部删除<br>  先删除没有完成流程节点，最后就可以完成删除流程定义信息<br>  项目开发中级联删除操作一般只开放给超级管理员使用。<br>  核心代码：<br>  reposotoryService,deleteDeployment(部署id,true);<br>  true:表示开启级联删除，默认为false。  </p>
+</blockquote>
+</li>
+<li><p><strong>删除流程部署代码</strong>  </p>
+<pre><code>@Test
+  public void deleteDeployment(){
+  //    1.获取流程引擎
+      ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+  //    2.通过流程引擎获取repositoryService
+      RepositoryService repositoryService = processEngine.getRepositoryService();
+  //    3.通过部署id来删除流程部署信息
+  //    3.1获取ProcessDefinitionQuery对象
+      ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery();
+  //    3.2查询当前所有流程定义，返回流程定义的集合
+      List&lt;ProcessDefinition&gt; processDefinitionList = processDefinitionQuery.processDefinitionKey("myProcess_1")
+              .orderByProcessDefinitionVersion()
+              .desc()
+              .list();
+      for (ProcessDefinition processDefinition : processDefinitionList) {
+          System.out.println("流程部署ID:"+processDefinition.getDeploymentId());
+          //    通过部署id来删除流程部署信息
+          //repositoryService.deleteDeployment(processDefinition.getDeploymentId());
+           repositoryService.deleteDeployment(processDefinition.getDeploymentId(),true);
+      }
+  }</code></pre>
+<h2 id="2-3-3-流程资源下载"><a href="#2-3-3-流程资源下载" class="headerlink" title="2.3.3 流程资源下载"></a>2.3.3 流程资源下载</h2><blockquote>
+<p>   现在我们的流程资源文件已经上传到数据库了，如果其他用户想要查看这些资源文件，可以从数据库中把资源文件下载到本地。<br>  解决方案：  </p>
+<pre><code>  /*  
+  * 下载 资源文件  
+  * 方案一：使用Activiti提供的api，来下载资源文件，保存到文件目录  
+  * 方案二：自己写代码从数据库中下载文件，使用jdbc对blob类型，clob类型数据读取出来，保存到文件目录  
+  * 解决Io操作：commons-io.jar  
+  * 这里我们使用方案一，Activiti提供的api:RepositoryService  
+  * */   </code></pre>
+</blockquote>
+</li>
+</ul>
+<p>commons-io 依赖包   </p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;commons-io&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+    &lt;version&gt;2.6&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+<ul>
+<li><p><strong>代码实现</strong>  </p>
+<pre><code>@Test
+  public void getDeployment() throws IOException {
+  //    1.获取流程引擎
+      ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+  //    2.获取api:RepositoryService
+      RepositoryService repositoryService = processEngine.getRepositoryService();
+
+  //3.获取查询对象 ProcessDefinitionQuery，查询流程定义信息
+      ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery();
+      ProcessDefinition processDefinition = processDefinitionQuery.processDefinitionKey("myEvection").singleResult();
+
+      //    4.通过流程定义信息，获取部署ID
+      String deploymentId = processDefinition.getDeploymentId();
+
+  //    5.通过RepositoryService,传递部署id参数，读取资源信息（png和bpmn）
+  //       5.1、获取png图片的流
+  //    从流程定义表中，获取png图片的目录和名字
+      String pngName = processDefinition.getDiagramResourceName();
+      //通过 部署id和 文件名字来获取图片的资源
+      InputStream pngInput = repositoryService.getResourceAsStream(deploymentId, pngName);
+      //       5.2、获取bpmn的流
+  //    从流程定义表中，获取bpmn文件
+      String bpmnName = processDefinition.getResourceName();
+      //通过 部署ID和 文件名字来获取bpmn的资源
+      InputStream bpmnInput = repositoryService.getResourceAsStream(deploymentId, bpmnName);
+
+      //    6、构造OutputStream流
+      File pngFile = new File("e:/act/evectionflow01.png");
+      File bpmnFile = new File("e:/act/evectionflow01.bpmn");
+      FileOutputStream pngOutputStream = new FileOutputStream(pngFile);
+      FileOutputStream bpmnOutputStream = new FileOutputStream(bpmnFile);
+
+      //    7.输入流，输出流的转换
+      IOUtils.copy(pngInput, pngOutputStream);
+      IOUtils.copy(bpmnInput, bpmnOutputStream);
+
+  //    8.关闭流
+      pngOutputStream.close();
+      bpmnOutputStream.close();
+      pngInput.close();
+      bpmnInput.close();
+
+  }  </code></pre>
+</li>
+</ul>
+<p><strong>说明</strong>  </p>
+<ol>
+<li>deploymentId为流程部署Id  </li>
+<li>resource_name为act_ge_bytearray表中NAME_列的值  </li>
+<li>使用repositoryService的getDeploymentResourceNames方法可以获取指定部署下得所有文件的名称  </li>
+<li>使用repositoryService的getResourceAsStream方法传入部署ID和资源图片名称可以获取部署下指定名称文件的输入流<br>最后的将输入流中的图片资源进行输出。  <h2 id="2-3-4-流程历史信息的查看"><a href="#2-3-4-流程历史信息的查看" class="headerlink" title="2.3.4 流程历史信息的查看"></a>2.3.4 流程历史信息的查看</h2><blockquote>
+<p>  即使流程定义已经删除了，流程执行的历史信息通过前面的分析，依然保存在activiti的act_hi_*相关的表中。所以我们还是可以查询流程执行的历史信息，可以通过HistoryService来查看相关的历史记录。  </p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p><strong>代码实现</strong>  </p>
+<pre><code>@Test
+  public void findHistoryInfo(){
+  //    获取引擎
+      ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+  //    获取HistoryService
+      HistoryService historyService = processEngine.getHistoryService();
+  //    获取actinst表的查询对象
+      HistoricActivityInstanceQuery instanceQuery = historyService.createHistoricActivityInstanceQuery();
+  //    查询actinst表，条件：根据字段 PROC_INST_ID_ 查询
+  //    instanceQuery.processInstanceId("5001");
+  //    查询actinst表，条件：根据字段PROC_DEF_ID_ 查询
+  //    instanceQuery.processDefinitionId("myEvection:1:2504");
+  //    查询actinst表，条件：根据字段EXECUTION_ID_ 查询
+      instanceQuery.executionId("5002");
+  //    给actinst表增加排序操作，通过开始创建时间进行升序排序
+      instanceQuery.orderByHistoricActivityInstanceStartTime().asc();
+  //    查询所有的内容
+      List&lt;HistoricActivityInstance&gt; historyActivityInstance = instanceQuery.list();
+  //    输出
+      for (HistoricActivityInstance hi : historyActivityInstance) {
+          System.out.println("活动id = "+hi.getActivityId());
+          System.out.println("活动名称 = "+hi.getActivityName());
+          System.out.println("流程定义ID = "+hi.getProcessDefinitionId());
+          System.out.println("流程实例id = "+hi.getProcessInstanceId());
+          System.out.println("执行id = "+hi.getExecutionId());
+          System.out.println("&gt;=========================");
+      }
+
+  }</code></pre>
+</li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -773,8 +1119,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Activity/">
-                                    <span class="chip bg-color">Activity</span>
+                                <a href="/tags/Activiti/">
+                                    <span class="chip bg-color">Activiti</span>
                                 </a>
                             
                         </div>
@@ -1214,9 +1560,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/10.jpg" class="responsive-img" alt="Activity工作流流程部署入门">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="Activiti工作流流程部署入门">
                         
-                        <span class="card-title">Activity工作流流程部署入门</span>
+                        <span class="card-title">Activiti工作流流程部署入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1241,8 +1587,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Activity/">
-                        <span class="chip bg-color">Activity</span>
+                    <a href="/tags/Activiti/">
+                        <span class="chip bg-color">Activiti</span>
                     </a>
                     
                 </div>
@@ -1528,7 +1874,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.5k</span>&nbsp;字
+                class="white-color">19.3k</span>&nbsp;字
             
             
             

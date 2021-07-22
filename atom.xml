@@ -6,7 +6,7 @@
   <link href="http://yq-hash.github.io/atom.xml" rel="self"/>
   
   <link href="http://yq-hash.github.io/"/>
-  <updated>2021-07-20T08:47:16.448Z</updated>
+  <updated>2021-07-22T04:11:35.322Z</updated>
   <id>http://yq-hash.github.io/</id>
   
   <author>
@@ -17,25 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Activity工作流流程部署入门</title>
+    <title>Activiti工作流流程部署入门</title>
     <link href="http://yq-hash.github.io/post/bdac.html"/>
     <id>http://yq-hash.github.io/post/bdac.html</id>
     <published>2021-07-19T03:36:47.000Z</published>
-    <updated>2021-07-20T08:47:16.448Z</updated>
+    <updated>2021-07-22T04:11:35.322Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;流程定义部署&quot;&gt;&lt;a href=&quot;#流程定义部署&quot; class=&quot;headerlink&quot; title=&quot;流程定义部署&quot;&gt;&lt;/a&gt;流程定义部署&lt;/h1&gt;&lt;h2 id=&quot;1-使用流程设计器，使用流程符号，画出流程图&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;1-1流程定义部署&quot;&gt;&lt;a href=&quot;#1-1流程定义部署&quot; class=&quot;headerlink&quot; title=&quot;1.1流程定义部署&quot;&gt;&lt;/a&gt;1.1流程定义部署&lt;/h1&gt;&lt;h2 id=&quot;1-1-1、使用流程设计器，使用流程符号，画出流程图&quot;&gt;&lt;a</summary>
         
       
     
     
     
     
-    <category term="Activity" scheme="http://yq-hash.github.io/tags/Activity/"/>
+    <category term="Activiti" scheme="http://yq-hash.github.io/tags/Activiti/"/>
     
   </entry>
   
