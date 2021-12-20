@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="IP地址详解, yq-hash">
+    <meta name="keywords" content="设计模式一(概述), yq-hash">
     <meta name="description" content="分享生活，分享知识，分享快乐">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>IP地址详解 | yq-hash</title>
+    <title>设计模式一(概述) | yq-hash</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -532,12 +532,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">IP地址详解</h1>
+                    <h1 class="description center-align post-title">设计模式一(概述)</h1>
                 </div>
             </div>
         </div>
@@ -654,8 +654,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                                <span class="chip bg-color">网络安全</span>
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">设计模式</span>
                             </a>
                         
                     </div>
@@ -670,28 +670,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-13
+                    2021-12-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-12-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    292
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -706,31 +706,72 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="IP地址详解"><a href="#IP地址详解" class="headerlink" title="IP地址详解"></a>IP地址详解</h1><h2 id="1、网络设备"><a href="#1、网络设备" class="headerlink" title="1、网络设备"></a>1、网络设备</h2><ul>
-<li>交换机：用来组建内网的局域网的设备  <h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2></li>
-<li><strong>局域网通讯规则</strong>：所有人必须都在<strong>同一网段内</strong>才能通讯  </li>
-<li>IP地址构成：网络位+主机位  </li>
-<li><strong>子网掩码</strong>：用来确定网络位，与 255 对应的是网路位，与 0 对应的是主机位  <blockquote>
-<p>例如：192.168.0.X，前 3 位是网络位，最后一个是主机位<br>属于 192.168.0.0 网段，名字是 .X<br>子网掩码就是 255.255.255.0  </p>
-</blockquote>
+                <h1 id="第一章-设计模式概述"><a href="#第一章-设计模式概述" class="headerlink" title="第一章 设计模式概述"></a><center><font color="#0099ff">第一章 设计模式概述</font></center></h1><center><font color="#0099ff">___________________________________________________</font></center>  
+
+<h3 id="本章目标"><a href="#本章目标" class="headerlink" title="本章目标"></a><font color="#0099ff">本章目标</font></h3><br>
+<ul>
+<li>
+    了解设计模式的概念
 </li>
-<li>ABCD 类 IP 地址： <ul>
-<li>A 类：1-126 默认子网掩码：255.0.0.0  </li>
-<li>B 类：128-191 默认子网掩码：255.255.0.0  </li>
-<li>C 类：192-223 默认子网掩码：255.255.255.0  </li>
-<li>D 类：224-239 组播地址  </li>
-<li>E 类：244-254 科研使用</li>
-</ul>
+<li>
+    了解设计模式的历史
 </li>
-<li>几种特殊的 IP 地址：<ul>
-<li>本机 IP ：127.0.0.1  </li>
-<li>广播地址：主机位全为 255  <blockquote>
-<p>主机位不能全为0和255  </p>
-</blockquote>
+<li>
+    了解设计模式的要素
 </li>
-<li>网段：主机位全为0</li>
-</ul>
+<li>
+    了解设计模式的分类
 </li>
+</ul>  
+
+<h2 id="1-1-设计模式概念"><a href="#1-1-设计模式概念" class="headerlink" title="| 1.1 设计模式概念 "></a><font color="#0099ff">| 1.1 设计模式概念 </font></h2><p>设计模式（Design Pattem）是一套被反复使用、多人知晓、经过分类编目的优秀代码设计经验的总结。<br>可复用面向对象软件系统一般划分为两大类：应用程序工具箱和框架（Framework）。框架通常定义了应用体系和整体结构类和对象的关系等设计参数，以便具体应用实现者能集中精力于应用本身的特定细节。<br>java设计模式贯彻的原理是：面向接口编程，而不是面向实现。其目标原则是：降低耦合，增强灵活性。   </p>
+<h2 id="1-2-设计模式简史"><a href="#1-2-设计模式简史" class="headerlink" title="| 1.2 设计模式简史 "></a><font color="#0099ff">| 1.2 设计模式简史 </font></h2><p>设计模式的研究起源于建筑工程设计大师Christopher Alexander的关于城市规划和建筑设计的著作。尽管他的著作是针对城市规划和建筑设计的，但是其观点实际上适用于所有工程设计领域，包括软件开发设计领域。Alexander在著作中指出，使用现在的设计方法所设计出的建筑物，不能满足所有工程设计的基本目的：改善人类的条件。     </p>
+<h2 id="1-3-设计模式要素"><a href="#1-3-设计模式要素" class="headerlink" title="| 1.3 设计模式要素 "></a><font color="#0099ff">| 1.3 设计模式要素 </font></h2><p>设计模式应当包含以下几个要素。   </p>
+<ul>
+<li>模式名称（pattern name）  <br> 
+设计模式的名称简洁地描述了设计模式得到问题、解决方案和效果。   
+<br> </li>
+<li>问题（problem）   <br>
+描述了应该在何时使用模式。   
+<br> </li>
+<li>环境或初始环境（context 或 initial context）   <br> 
+环境说明模式的使用范围，也就是模式应用之前的起始条件（也叫前提条件）。 
+<br>   </li>
+<li>解决方案(solution)    <br> 
+描述了设计的组成成分，它们之间的相互关系及各自的职责和协作方式。模式就像一个模板，可应用于多种不同场合，因此解决方案并不描述一个特定而具体的设计或实现，而是提供设计问题的抽象描述和怎样用一个具有一般意义的元素组合（类或对象组合）来解决这个问题。   
+<br> </li>
+<li>效果（consequences）   <br> 
+描述了模式应用的效果及使用模式应权衡的问题   
+<br> </li>
+<li>举例（examples）<br>   
+使用一个或多个示意性的应用来说明特定的真实环境，以及模式是如何应用到环境中、改变环境并且给出当模式结束时的末态环境。例子有助于理解模式的使用方式和适用性，每一个例子均可附带一个实现的样本，说明解答是如何给出来的。   
+<br> </li>
+<li>末态环境（resulting context）  <br> 
+模式应用到系统之后的状态。末态环境包括模式带来的好结果和坏结果，以及新状态中的其他问题和可能涉及的其他有关系的模式。   
+<br> </li>
+<li>推理（rationale）<br> 
+推理解释本模式的步骤、规则、以及此模式作为一个整体是如何以特定的方式解决模式的。   
+<br> </li>
+<li>其他有关模式（related pattern）<br> 
+描述在现有的系统中此模式与其他模式的静态和动态的关系。   
+<br> </li>
+<li>已知的应用（known uses）   <br> 
+已知的应用是在已有的系统模式中出现和应用的例子，有助于证明此模式确实是对一个重复发生的问题可行的解答。
+<br>   
+任何对模式的讲解或者论述必须依据一定的格式，正如GoF格式一样，所有的模式都应当包括模式的所有要素。   
+<br>
+<br> 
+## <font color="#0099ff">| 1.4 设计模式分类 </font>   
+常用的设计模式可以概况为23种，按照特点可以将其分为三大类型：   </li>
+<li>创建型  <br></li>
+<li>构造型<br></li>
+<li>行为型<br>
+### <font color="#0099ff">| 1.4.1 创建型 </font>  
+<br>
+创建型模式是用来创建对象的模式，抽象了实例化的过程，帮助一个系统独立于其关联对象的创建、组合和表示方式。所有的创建模式都有两个主要功能：
+<br></li>
+<li>将系统所使用的具体类的信息封装起来；<br></li>
+<li>隐藏类的实例是如何被创建和组织的。外界对于这些对象只知道它们共同的接口，而不清楚其具体的实现细节。 </li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -775,7 +816,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yq-hash.github.io/post/227.html">http://yq-hash.github.io/post/227.html</a>
+                    <a href="http://yq-hash.github.io/post/9f5.html">http://yq-hash.github.io/post/9f5.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -813,8 +854,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                                    <span class="chip bg-color">网络安全</span>
+                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">设计模式</span>
                                 </a>
                             
                         </div>
@@ -1245,17 +1286,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/2504.html">
+                <a href="/post/9f5.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="Servlet3-0异步支持-AsyncSupported">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="设计模式一(概述)">
                         
-                        <span class="card-title">Servlet3-0异步支持-AsyncSupported</span>
+                        <span class="card-title">设计模式一(概述)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1265,9 +1307,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1276,11 +1318,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
                     </a>
                     
                 </div>
@@ -1294,13 +1337,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/502f.html">
+                <a href="/post/efe3.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.png" data-original="/medias/featureimages/23.jpg" class="responsive-img" alt="关于VMware的一些资源-ISO-序列号（二）">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/16.jpg" class="responsive-img" alt="Activiti工作流流程进阶">
                         
-                        <span class="card-title">关于VMware的一些资源-ISO-序列号（二）</span>
+                        <span class="card-title">Activiti工作流流程进阶</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1311,7 +1354,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-01
                             </span>
                         <span class="publish-author">
                             
@@ -1324,8 +1367,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/iso/">
-                        <span class="chip bg-color">iso</span>
+                    <a href="/tags/Activiti/">
+                        <span class="chip bg-color">Activiti</span>
                     </a>
                     
                 </div>
